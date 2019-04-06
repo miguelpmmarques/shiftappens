@@ -86,8 +86,8 @@ function main(){
 
   function handleOrientation(event){
     var rtrn = orientationHandler(event);
-    ball.style.top  = (rtrn[0]*x/180 - 10) + "px";
-    ball.style.left = (rtrn[1]*y/180 - 10) + "px";
+    ball.style.top  = (rtrn[0]*maxX/180 - 10) + "px";
+    ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
   window.addEventListener('deviceorientation', handleOrientation);
   window.addEventListener('devicemotion', handleMotion);
