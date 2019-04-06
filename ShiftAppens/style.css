@@ -5,8 +5,8 @@ header
   height: 288px;
   border-radius: 25px;
   background-image:
-    url("logo.svg"),
-    url("backgr.png"),
+    url("./assets/logo.svg"),
+    url("./assets/backgr.png"),
     radial-gradient(ellipse at 10% 90%,#575475, #101138);
 }
 img
