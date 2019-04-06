@@ -26,6 +26,10 @@
     font-weight: bold;
     border-radius: 20%;
 }
+
+#debug{
+    position: absolute;
+}
 /*
 ball   = document.querySelector('.ball');
 garden = document.querySelector('.garden');
