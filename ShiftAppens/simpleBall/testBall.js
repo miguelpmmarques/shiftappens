@@ -54,7 +54,7 @@ function handleOrientation(event) {
   if (m >  280) { m =  280};
   if (m < 60) { m = 60};
 
-  output.innerHTML  = "m : " + m-50 + "\n";
+  output.innerHTML  = "m : " + m-50 + "\n"; 
   output.innerHTML += "gamma: " + y + "\n";
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
