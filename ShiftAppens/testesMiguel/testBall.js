@@ -104,15 +104,15 @@ function main(){
   
     ball.style.top =   (50 + gamma) + "px";
     if(gamma < -50 && gamma > -90){
-      ball2.style.color = "red";
+      ball2.style.background = "red";
     }
     else{
-      ball2.style.color = "blue";
+      ball2.style.background = "blue";
     }
     if(gamma  < 90 && gama > 50 ){
-      ball3.style.color = "red";
+      ball3.style.background = "red";
     }else{
-      ball3.style.color = "blue";
+      ball3.style.background = "blue";
     }
 
   
