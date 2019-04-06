@@ -1,3 +1,4 @@
+"use strict";
 var ball   = document.querySelector('.ball');
 var ball1   = document.querySelector('.ball1');
 var ball2   = document.querySelector('.ball2');
@@ -13,14 +14,17 @@ var maxY = garden.clientHeight - ball.clientHeight;
 var x;  // In degree in the range [-180,180]
 var y;
 
+
+(function()
+{
+	window.addEventListener("load", main);
+}());
+
 function handleOrientation(event) {
     
   x = event.beta;  // In degree in the range [-180,180]
   y = event.gamma; // In degree in the range [-90,90]
   z = event.alpha;
-
-  
-
   //output.innerHTML  = "beta : " + x + "\n";
   //output.innerHTML  +="gamma: " + y + "\n";
   //output.innerHTML +="alpha: " + z + "\n";
@@ -50,7 +54,7 @@ function handleMotion(event){
   output.innerHTML += "z: " + z + "\n";
   if(x<-1*sensitivity )
   {
-    ball4.style.background = "red";
+    ball4.style.background = "red"
   }
   else{
     ball4.style.background = "blue";
@@ -76,6 +80,8 @@ function handleMotion(event){
   
 
 }
+function main(){
+  window.addEventListener('deviceorientation', handleOrientation);
+  window.addEventListener('devicemotion', handleMotion);
+}
 
-window.addEventListener('deviceorientation', handleOrientation);
-window.addEventListener('devicemotion', handleMotion);
