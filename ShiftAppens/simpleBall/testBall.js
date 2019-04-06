@@ -42,8 +42,8 @@ function main() {
         }
         ballx += dx;
         bally += dy;
-    }
 
+    }
     setInterval(draw, speedBall);
 
 
