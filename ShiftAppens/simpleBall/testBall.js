@@ -8,14 +8,14 @@ var calibate = document.getElementById("calibrate")
 var x;  // In degree in the range [-180,180]
 var y;
 
-function reset(ev) {
-    maxX = garden.clientWidth  - ball.clientWidth;
-    maxY = garden.clientHeight - ball.clientHeight;
-    x = 0;  // In degree in the range [-180,180]
-    y = 0;
-
-}
 function handleOrientation(event) {
+    function reset(ev) {
+        maxX = garden.clientWidth  - ball.clientWidth;
+        maxY = garden.clientHeight - ball.clientHeight;
+        x = 0;  // In degree in the range [-180,180]
+        y = 0;
+
+    }
     calibate.addEventListener("click",reset)
     x = event.beta;  // In degree in the range [-180,180]
     y = event.gamma; // In degree in the range [-90,90]
