@@ -51,7 +51,7 @@ function handleOrientation(event) {
   x += 90;
   y += 90;
   var m = (maxX*y/100)-40;
-  if (m >  270) { m =  270};
+  if (m >  280) { m =  280};
   if (m < 60) { m = 60};
 
   output.innerHTML  = "m : " + m-50 + "\n";
