@@ -105,13 +105,13 @@ function main(){
     var beta = rtrn[0];
     var gamma = rtrn[1];
     ball.style.top =   (50 + gamma) + "px";
-    if(gamma <140 && gamma >  40 && beta < 12){
+    if(gamma <140 && gamma >  60 && beta < 12 && beta > 0){
       ball2.style.background = "red";
     }
     else{
       ball2.style.background = "blue";
     }
-    if(gamma  > 40 && gamma <180 && beta < 12){
+    if(gamma  > 40 && gamma <120 && beta < 12 && beta > 0){
       ball3.style.background ="red";
     }else{
       ball3.style.background = "blue";
