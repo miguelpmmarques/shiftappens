@@ -50,13 +50,16 @@ function handleOrientation(event) {
   // x and y to [0,180]
   x += 90;
   y += 90;
-
+  var m = (maxX*y/120)-30;
+  if (m >  120) { m =  120};
+  if (m < 10) { m = 10};
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
   ball.style.top  = 20 + "px";
-  ball.style.left = (maxX*y/120)-20 + "px";
+  ball.style.left = m + "px";
+  console.log("PUTA DE GAY NEM FUMA CANHAO");
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
