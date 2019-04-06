@@ -21,9 +21,9 @@ function orientationHandler(event) {
   var x = event.beta;  // In degree in the range [-180,180]
   var y = event.gamma; // In degree in the range [-90,90]
   var z = event.alpha;
-  //output.innerHTML  = "beta : " + x + "\n";
-  //output.innerHTML  +="gamma: " + y + "\n";
-  //output.innerHTML +="alpha: " + z + "\n";
+  output.innerHTML  = "beta : " + x + "\n";
+  output.innerHTML  +="gamma: " + y + "\n";
+  output.innerHTML +="alpha: " + z + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
@@ -45,9 +45,9 @@ function motionHandler(event){
   var x = event.acceleration.x;
   var y = event.acceleration.y;
   var z = event.acceleration.z;
-  output.innerHTML = "x: " + x + "\n";
-  output.innerHTML += "y: " + y + "\n";
-  output.innerHTML += "z: " + z + "\n";
+  //output.innerHTML = "x: " + x + "\n";
+  //output.innerHTML += "y: " + y + "\n";
+  //output.innerHTML += "z: " + z + "\n";
   if(x<-1*sensitivity )
   {
 
