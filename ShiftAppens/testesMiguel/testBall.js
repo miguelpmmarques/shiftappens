@@ -31,7 +31,7 @@ function orientationHandler(event) {
   if (y >  90) { y =  90};
   if (y < -90) { y = -90};
 
-  
+  y += 90;
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
