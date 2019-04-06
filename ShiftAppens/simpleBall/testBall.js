@@ -9,6 +9,8 @@ var x;  // In degree in the range [-180,180]
 var y;
 
 function reset(ev) {
+    ball   = document.querySelector('.ball');
+    garden = document.querySelector('.garden');
     maxX = garden.clientWidth  - ball.clientWidth;
     maxY = garden.clientHeight - ball.clientHeight;
     x = 0;  // In degree in the range [-180,180]
@@ -20,8 +22,8 @@ function handleOrientation(event) {
     x = event.beta;  // In degree in the range [-180,180]
     y = event.gamma; // In degree in the range [-90,90]
 
-  output.innerHTML  += "beta : " + x + "\n";
-  output.innerHTML += "gamma: " + y + "\n";
+  output.innerHTML  = "beta : " + x + "\n";
+  output.innerHTML = "gamma: " + y + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
