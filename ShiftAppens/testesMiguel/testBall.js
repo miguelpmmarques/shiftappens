@@ -109,7 +109,7 @@ function main(){
     else{
       ball2.style.background = "blue";
     }
-    if(gamma  < 90 && gama > 50 ){
+    if(gamma  < 90 && gamma > 50 ){
       ball3.style.background = "red";
     }else{
       ball3.style.background = "blue";
