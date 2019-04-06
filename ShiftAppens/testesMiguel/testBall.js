@@ -71,7 +71,7 @@ function motionHandler(event){
     ball3.style.background = "blue";
   }
     
-  return[x,y]
+  return[x,y];
   
 
 }
