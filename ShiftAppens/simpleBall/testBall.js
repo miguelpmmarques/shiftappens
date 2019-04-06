@@ -50,7 +50,7 @@ function handleOrientation(event) {
   // x and y to [0,180]
   x += 90;
   y += 90;
-  let m = (maxX*y/120)-10;
+  let m = (maxX*y/120)-20;
   if (y >  125) { y =  125};
   if (y < 10) { y = 10};
 
