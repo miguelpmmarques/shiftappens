@@ -12,8 +12,8 @@ var debug = document.getElementById("debug")
 
 
 function handleOrientation(event) {
-    window.x = event.beta;  // In degree in the range [-180,180]
-    window.y = event.gamma; // In degree in the range [-90,90]
+    y = event.beta;  // In degree in the range [-180,180]
+    x = event.gamma; // In degree in the range [-90,90]
   calibrate.addEventListener("click",function(ev){
        location.reload();
   })
@@ -38,8 +38,6 @@ function handleOrientation(event) {
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
-  x =  window.x;
-  y =  window.y;
   if (x >  90) { x =  90};
   if (x < -90) { x = -90};
 
@@ -52,11 +50,12 @@ function handleOrientation(event) {
   y += 90;
 
   output.innerHTML  = "beta : " + x + "\n";
+
   output.innerHTML += "gamma: " + y + "\n";
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
   ball.style.top  = 20 + "px";
-  ball.style.left = (maxX*y/180 - 10) + "px";
+  ball.style.left = (maxX*x/180 - 10) + "px";
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
