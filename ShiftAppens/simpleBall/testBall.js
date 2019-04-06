@@ -12,7 +12,7 @@ var debug1 = document.getElementById("debug1")
 
 
 function handleOrientation(event) {
-  x = event.beta;  // In degree in the range [-180,180]
+  //x = event.beta;  // In degree in the range [-180,180]
   y = event.gamma; // In degree in the range [-90,90]
   calibrate.addEventListener("click",reset)
 
@@ -22,21 +22,21 @@ function handleOrientation(event) {
       garden = document.querySelector('.garden');
       maxX = garden.clientWidth  - ball.clientWidth;
       maxY = garden.clientHeight - ball.clientHeight;
-      x = 0;  // In degree in the range [-180,180]
+    //  x = 0;  // In degree in the range [-180,180]
       y = 0;
   }
 
-  output.innerHTML  = "beta : " + x + "\n";
+  //output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
-  if (x >  90) { x =  90};
-  if (x < -90) { x = -90};
+  //if (x >  90) { x =  90};
+  //if (x < -90) { x = -90};
 
   // To make computation easier we shift the range of
   // x and y to [0,180]
-  x += 90;
+  //x += 90;
   y += 90;
 
   // 10 is half the size of the ball
