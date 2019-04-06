@@ -44,7 +44,14 @@ function handleMotion(event){
   output.innerHTML = "x: " + x + "\n";
   output.innerHTML += "y: " + y + "\n";
   output.innerHTML += "z: " + z + "\n";
-  garden.style.background = "blue";
+  if((x>5) || (y>5) || (z>5)){
+    garden.style.background = "blue";
+  } else{
+    garden.style.background = "#ed6565";
+  }
+    
+
+  
 
 }
 
