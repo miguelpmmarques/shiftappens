@@ -1,4 +1,5 @@
 var ball   = document.querySelector('.ball');
+var ball1   = document.querySelector('.ball1');
 var ball2   = document.querySelector('.ball2');
 var ball3   = document.querySelector('.ball3');
 var garden = document.querySelector('.garden');
@@ -47,9 +48,9 @@ function handleMotion(event){
   output.innerHTML += "y: " + y + "\n";
   output.innerHTML += "z: " + z + "\n";
   if(x>5){
-    ball.style.background = "red";
+    ball1.style.background = "red";
   }else{
-    ball.style.background = "blue";
+    ball1.style.background = "blue";
   }
   
   if(y> 5){
