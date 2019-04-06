@@ -27,13 +27,13 @@
     border-radius: 20%;
 }
 
-#debug1{
+#debug{
     position: absolute;
     top: 320px;
     left  : 30px;
     width : 150px;
     height: 30px;
-    font-size: 10px;
+    font-size: 30px;
 }
 
 /*
