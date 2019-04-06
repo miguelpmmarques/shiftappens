@@ -3,7 +3,7 @@
 const totPages = 3;
 
 (function()
-{	
+{
 	window.addEventListener("load", main);
 }());
 
@@ -14,7 +14,7 @@ function main()
 	btn.addEventListener("click", btnNextPageHandler);  //escutar clicks no botão de navegação
 
 	window.addEventListener("message", messageHandler);
-	
+
 	var startPage = 1;
 	showPage(startPage);
 }
@@ -25,15 +25,15 @@ function showPage(pageNum)
 {
 	//carregar página na frame e enviar mensagem para a página logo que esteja carregada (frameLoadHandler)
 	var frm = document.getElementsByTagName("iframe")[0];
-	frm.src = "../gyroTests/gyroAcel.html";
-	
+	frm.src = "./gyroTests/gyroAcel.html";
+
 	setTimeout(function(){frm.contentWindow.postMessage("", "*");}, 3000);
 
 	if(pageNum == totPages) //se última, esconder botão de navegação
 	{
 		var btn = document.getElementsByTagName("button")[0];
 		btn.style.visibility = "hidden";
-		btn.removeEventListener("click", btnNextPageHandler);  //remover clicks no botão de navegação		
+		btn.removeEventListener("click", btnNextPageHandler);  //remover clicks no botão de navegação
 	}
 }
 
@@ -58,10 +58,10 @@ function btnNextPageHandler(ev)
 		close(frm);
 
 	return pageNum + 1;
-}	
+}
 
 function messageHandler(ev)
-{	
+{
 	//advance in the frames
 	var current = btnNextPageHandler(ev);
 }

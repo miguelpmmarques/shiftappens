@@ -160,6 +160,14 @@
   <script type="text/javascript">
     var gn;
 
+    var xGravity = document.getElementById("dm_gx");
+    var yGravity = document.getElementById("dm_gy");
+    var zGravity = document.getElementById("dm_gz");
+
+    var x = document.getElementById("dm_x");
+    var y = document.getElementById("dm_y");
+    var z = document.getElementById("dm_z");
+
     function init_gn() {
       var args = {
         logger: logger
@@ -181,7 +189,7 @@
 
         if(!isAvailable.accelerationIncludingGravityAvailable) {
           logger({message:'Device acceleration incl. gravity is not available.'});
-        } 
+        }
 
         if(!isAvailable.rotationRateAvailable) {
           logger({message:'Device rotation rate is not available.'});
@@ -192,7 +200,7 @@
       }).catch(function(e){
 
         console.log(e);
-        
+
       });
     }
 
@@ -208,22 +216,34 @@
       gn.start(gnCallBack);
     }
 
+    function gnCallBack() {
+
+    }
+
     //  obtem valores
     function gnCallBack(data) {
       //   $('#do_alpha') sao so tags e vao sendo atualizadas de alguma maneira
       //  de alguma maneira esta num loop
+
+      xGravity.innerHTML = data.dm.x
+      yGravity.innerHTML = data.dm.y
+      zGravity.innerHTML = data.dm.z
+      x.innerHTML = data.dm.gx
+      y.innerHTML = data.dm.gy
+      z.innerHTML = data.dm.gz
+
       $('#do_alpha').val(data.do.alpha);
       $('#do_beta').val(data.do.beta);
       $('#do_gamma').val(data.do.gamma);
 
-      $('#dm_x').val(data.dm.x);
+    /*  $('#dm_x').val(data.dm.x);
       $('#dm_y').val(data.dm.y);
       $('#dm_z').val(data.dm.z);
 
       $('#dm_gx').val(data.dm.gx);
       $('#dm_gy').val(data.dm.gy);
       $('#dm_gz').val(data.dm.gz);
-
+*/
       $('#dm_alpha').val(data.dm.alpha);
       $('#dm_beta').val(data.dm.beta);
       $('#dm_gamma').val(data.dm.gamma);
