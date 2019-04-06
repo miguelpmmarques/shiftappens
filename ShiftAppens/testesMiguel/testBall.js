@@ -38,8 +38,8 @@ function handleOrientation(event) {
   ball.style.left = (maxY*y/180 - 10) + "px";
 }
 function handleMotion(event){
-  x = event.accelaration.x;
-  y = event.accelatation.y;
+  x = event.acceleration.x;
+  y = event.acceleration.y;
   z = event.accelaration.z;
   output.innerHTML += "x: " + x + "\n";
   output.innerHTML += "y: " + y + "\n";
