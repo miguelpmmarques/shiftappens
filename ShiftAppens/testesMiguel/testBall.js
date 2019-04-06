@@ -56,7 +56,7 @@ function handleMotion(event){
   output.innerHTML = "x: " + x1 + "\n";
   output.innerHTML += "y: " + y1 + "\n";
   output.innerHTML += "z: " + z1 + "\n";
-  if(x<-1*sensitivity )
+  if(x1<-1*sensitivity )
   {
     ball4.style.background = "red"
   }
