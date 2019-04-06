@@ -1,0 +1,75 @@
+#outer-dropzone {
+  height: 90%;
+  width: 90%;
+  touch-action: none;
+}
+
+#inner-dropzone {
+  height: 40%;
+   width: 40%;
+}
+h1{
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-shadow: 0 1px 0 #DC38FF, 0 2px 0 #DC38FF, 0 2.1px 0 #DB28FF, 0 2.2px 0 #2BFAFF, 0 2.3px 10px rgba(0,0,0,.25);
+    text-align: center;
+    border-radius: 4px;
+}
+div{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 2.1px 0 #bbb, 0 2.2px 0 #b9b9b9, 0 2.3px 10px rgba(0,0,0,.25);
+    text-align: center;
+    border-radius: 4px;
+}
+
+
+.dropzone {
+  background-color: #EEE;
+  border: dashed 4px transparent;
+  border-radius: 4px;
+  margin: 10px auto 30px;
+  padding: 10px;
+  width: 80%;
+  transition: background-color 0.5s;
+}
+
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+.notdropzone{
+    left: 10%;
+      color: #000;
+      background-color: #FFFFFF;
+
+}
+#yes-drop {
+    position: absolute;
+    top: 70%;
+    margin: auto;
+    display: inline-block;
+    width: 20%;
+    min-width: 70px;
+    left:33%;
+    padding:15px;
+    text-align: center;
+
+    color: #fff;
+    background-color: #29e;
+    border: solid 2px #000;
+
+    transition: background-color 0.5s;
+}
+.dropztrigger{
+    background-color: "#000"
+}
