@@ -25,7 +25,7 @@ function showPage(pageNum)
 {
 	//carregar página na frame e enviar mensagem para a página logo que esteja carregada (frameLoadHandler)
 	var frm = document.getElementsByTagName("iframe")[0];
-	frm.src = "page" + pageNum + ".html";
+	frm.src = "../gyroTests/gyroAcel.html";
 	
 	setTimeout(function(){frm.contentWindow.postMessage("", "*");}, 3000);
 

@@ -1,11 +1,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, user-scalable=no">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../bower_components/fulltilt/dist/fulltilt.min.js"></script>
 <script src="../lib/gyronorm.js"></script>
-<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
   .container{
     margin-top: 20px;
@@ -169,8 +165,10 @@
         logger: logger
       };
 
+      //  inicia o api
       gn = new GyroNorm();
 
+      //  testa se o dispositivo suporta giroscopio
       gn.init(args).then(function() {
         var isAvailable = gn.isAvailable();
         if(!isAvailable.deviceOrientationAvailable) {
@@ -189,6 +187,7 @@
           logger({message:'Device rotation rate is not available.'});
         }
 
+        //  corre sempre e caso de erro entra no catch e imprime o erro
         start_gn();
       }).catch(function(e){
 
@@ -209,7 +208,10 @@
       gn.start(gnCallBack);
     }
 
+    //  obtem valores
     function gnCallBack(data) {
+      //   $('#do_alpha') sao so tags e vao sendo atualizadas de alguma maneira
+      //  de alguma maneira esta num loop
       $('#do_alpha').val(data.do.alpha);
       $('#do_beta').val(data.do.beta);
       $('#do_gamma').val(data.do.gamma);
