@@ -49,7 +49,7 @@ function handleMotion(event){
   output.innerHTML += "z: " + z + "\n";
   if(x<-1)
   {
-    ball1.style.background = "#ed6565"
+    ball1.style.background = "yellow"
   }
   else if(x>1){
     ball1.style.background = "red";
