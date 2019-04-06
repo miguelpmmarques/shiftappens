@@ -24,7 +24,7 @@ function orientationHandler(event) {
   var z = event.alpha;
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML  +="gamma: " + y + "\n";
-  output.innerHTML +="alpha: " + z + "\n";
+  output.innerHTML +="alpha: " + z + "\nUltimo\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
