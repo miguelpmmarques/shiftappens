@@ -51,15 +51,15 @@ function handleOrientation(event) {
   x += 90;
   y += 90;
   var m = (maxX*y/100)-40;
-  if (m >  210) { m =  240};
-  if (m < 10) { m = 10};
+  if (m >  280) { m =  280};
+  if (m < 60) { m = 60};
 
-  output.innerHTML  = "m : " + m + "\n";
+  output.innerHTML  = "m : " + m-50 + "\n";
   output.innerHTML += "gamma: " + y + "\n";
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
   ball.style.top  = 20 + "px";
-  ball.style.left = m + "px";
+  ball.style.left = m-50 + "px";
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
