@@ -7,6 +7,7 @@ var maxY = garden.clientHeight - ball.clientHeight;
 var calibate = document.getElementById("calibrate")
 var x;  // In degree in the range [-180,180]
 var y;
+calibate.addEventListener("click",reset)
 
 function reset(ev) {
     ball   = document.querySelector('.ball');
@@ -18,7 +19,6 @@ function reset(ev) {
 
 }
 function handleOrientation(event) {
-    calibate.addEventListener("click",reset)
     x = event.beta;  // In degree in the range [-180,180]
     y = event.gamma; // In degree in the range [-90,90]
 
