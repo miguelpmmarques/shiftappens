@@ -2,6 +2,7 @@ var ball   = document.querySelector('.ball');
 var ball1   = document.querySelector('.ball1');
 var ball2   = document.querySelector('.ball2');
 var ball3   = document.querySelector('.ball3');
+var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 const sensitivity = 3;
@@ -49,9 +50,12 @@ function handleMotion(event){
   output.innerHTML += "z: " + z + "\n";
   if(x<-1*sensitivity )
   {
-    ball1.style.background = "yellow"
+    ball4.style.background = "red";
   }
-  else if(x>sensitivity ){
+  else{
+    ball4.style.background = "blue";
+  }
+  if(x>sensitivity ){
     ball1.style.background = "red";
   }else{
     ball1.style.background = "blue";
