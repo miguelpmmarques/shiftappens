@@ -8,8 +8,8 @@ var calibate = document.getElementById("calibrate")
 calibate.addEventListener("click",reset)
 
 function reset(ev) {
-    var maxX = garden.clientWidth  - ball.clientWidth;
-    var maxY = garden.clientHeight - ball.clientHeight;
+    maxX = garden.clientWidth  - ball.clientWidth;
+    maxY = garden.clientHeight - ball.clientHeight;
 
 }
 function handleOrientation(event) {
