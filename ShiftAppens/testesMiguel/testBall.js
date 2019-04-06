@@ -11,6 +11,7 @@ const xlimit = 3;
 
 
 
+
 (function()
 {
 	window.addEventListener("load", main);
@@ -104,8 +105,7 @@ function main(){
 
   function handleOrientation(event){
     var gamma = orientationHandler(event);
-    ball.style.top =   (parseInt(garden.style.height)/2  + gamma) + "px";
-    console.log("-----> "+ garden.style.height+"\n");
+    ball.style.top =   (100 + gamma) + "px";
     //ball.style.top  = (rtrn[0]*maxX/180 - 10) + "px";
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
