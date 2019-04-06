@@ -38,7 +38,8 @@ function orientationHandler(event) {
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
-
+  return[x,y];
+  
 }
 function motionHandler(event){
   var x = event.acceleration.x;
@@ -71,7 +72,6 @@ function motionHandler(event){
     ball3.style.background = "blue";
   }
     
-  return[x,y];
   
 
 }
