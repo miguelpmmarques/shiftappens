@@ -7,7 +7,7 @@ var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 const sensitivity = 3;
-
+const xlimit = 5;
 
 
 
@@ -50,11 +50,10 @@ function motionHandler(event){
   output.innerHTML += "z: " + z + "\n";
   if(x<-1*sensitivity )
   {
-    ball4.style.background = "red"
+
+    return 0;
   }
-  else{
-    ball4.style.background = "blue";
-  }
+ 
   if(x>sensitivity ){
     ball1.style.background = "red";
   }else{
@@ -63,6 +62,7 @@ function motionHandler(event){
   
   if(y> sensitivity ){
     ball2.style.background = "red";
+    return 1;
   }else{
     ball2.style.background = "blue";
   }
@@ -78,10 +78,25 @@ function motionHandler(event){
 function main(){
   var maxX = garden.clientWidth  - ball.clientWidth;
   var maxY = garden.clientHeight - ball.clientHeight;
-
+  var xcount = 0;
+  var prev_x = 0;
   
   function handleMotion(event){
-    motionHandler(event);
+    var rtrn = motionHandler(event);
+    if (rtrn == prev_x){
+      xcount += 1;
+    }
+    else{
+      prev_x = rtrn;
+      xcount = 0;
+    }
+
+    if(xcount >= xlimit && prev_x == 1){
+      ball4.style.background = "red";
+    }
+    else{
+      ball4.style.background = "blue";
+    }
   }
 
   function handleOrientation(event){
