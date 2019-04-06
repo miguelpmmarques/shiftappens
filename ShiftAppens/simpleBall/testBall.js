@@ -9,22 +9,27 @@ var maxY = garden.clientHeight - ball.clientHeight;
 var calibrate = document.getElementById("calibrate")
 
 var debug = document.getElementById("debug")
+calibrate.addEventListener("click",reset)
 
+function reset() {
+    ball   = document.querySelector('.ball');
+    garden = document.querySelector('.garden');
+    maxX = garden.clientWidth  - ball.clientWidth;
+    maxY = garden.clientHeight - ball.clientHeight;
+    debug.innerHTML = "Xprev - "+x+"\nYprev - "+y+"\n"
+    x = 0;  // In degree in the range [-180,180]
+    y = 90;
+    debug.innerHTML += "Xpos - "+x+"\nYpos - "+y+"\n"
+    ball.style.top  = 20 + "px";
+    ball.style.left = (maxY*y/180 - 10) + "px";
+    output.innerHTML  = "beta : " + x + "\n";
+    output.innerHTML += "gamma: " + y + "\n";
+}
 
 function handleOrientation(event) {
   x = event.beta;  // In degree in the range [-180,180]
   y = event.gamma; // In degree in the range [-90,90]
-  calibrate.addEventListener("click",reset)
 
-  function reset() {
-      debug.innerHTML = "-> "+Math.random()
-      ball   = document.querySelector('.ball');
-      garden = document.querySelector('.garden');
-      maxX = garden.clientWidth  - ball.clientWidth;
-      maxY = garden.clientHeight - ball.clientHeight;
-      x = 0;  // In degree in the range [-180,180]
-      y = 0;
-  }
 
 
   // Because we don't want to have the device upside down
