@@ -37,7 +37,7 @@ function orientationHandler(event) {
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
   //return[x,y];
-  return y;
+  return[x,y] ;
 }
 function motionHandler(event){
   var x = event.acceleration.x;
@@ -101,19 +101,20 @@ function main(){
   }
 
   function handleOrientation(event){
-    var gamma = orientationHandler(event);
-  
+    var rtrn = orientationHandler(event);
+    var alpha = rtrn[0];
+    var gamma = rtrn[1];
     ball.style.top =   (50 + gamma) + "px";
-    if(gamma < -40 && gamma > -90){
-      ball2.style.background = "blue";
-    }
-    else{
+    if(gamma >-40 && gamma < -90 && alpha < ){
       ball2.style.background = "red";
     }
-    if(gamma  > -40 && gamma <90 ){
-      ball3.style.background = "blue";
+    else{
+      ball2.style.background = "blue";
+    }
+    if(gamma  < -40 && gamma >90  && alpha < 12){
+      ball3.style.background ="red";
     }else{
-      ball3.style.background = "red";
+      ball3.style.background = "blue";
     }
 
   
