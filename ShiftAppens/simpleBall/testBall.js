@@ -12,8 +12,8 @@ var debug = document.getElementById("debug")
 
 
 function handleOrientation(event) {
-  var x = event.beta;  // In degree in the range [-180,180]
-  var y = event.gamma; // In degree in the range [-90,90]
+  x = event.beta;  // In degree in the range [-180,180]
+  y = event.gamma; // In degree in the range [-90,90]
   calibrate.addEventListener("click",reset)
 
   function reset() {
