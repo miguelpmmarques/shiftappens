@@ -3,8 +3,8 @@ var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 var paddle1 = document.querySelector('.rectangle');
 
-var maxX = garden.clientWidth  - ball.clientWidth;
-var maxY = garden.clientHeight - ball.clientHeight;
+var maxX = garden.clientWidth  - rectangle.clientWidth;
+var maxY = garden.clientHeight - rectangle.clientHeight;
 
 var x;  // In degree in the range [-180,180]
 var y;
