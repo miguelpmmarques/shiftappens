@@ -31,11 +31,7 @@ function orientationHandler(event) {
   if (x >  90) { x =  90};
   if (x < -90) { x = -90};
 
-  // To make computation easier we shift the range of
-  // x and y to [0,180]
-  x += 90;
-  y += 90;
-  z +=90;
+  
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
@@ -105,7 +101,8 @@ function main(){
 
   function handleOrientation(event){
     var gamma = orientationHandler(event);
-    ball.style.top =   (100 + gamma) + "px";
+
+    ball.style.top =   (50 + gamma) + "px";
     //ball.style.top  = (rtrn[0]*maxX/180 - 10) + "px";
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
