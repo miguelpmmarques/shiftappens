@@ -10,8 +10,8 @@ function main() {
 
     var canvas = document.getElementsByClassName("garden")[0];
     var ctx = canvas.getContext("2d");
-    var ballx = canvas.width/2;
-    var bally = canvas.height-30;
+    var ballx = 20;
+    var bally = 20;
     var dx = 1;
     var dy = -1;
 
@@ -20,10 +20,10 @@ function main() {
 
         function drawBall() {
             ctx.beginPath();
-            ctx.arc(ballx, bally, 10, 0, Math.PI,true);
+            ctx.arc(ballx, bally, 10, 0, Math.PI*2,true);
             ctx.fillStyle = "#0095DD";
-            ctx.fill();
             ctx.closePath();
+            ctx.fill();
         }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -88,7 +88,7 @@ function main() {
 
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(x, y, 20, m-50);
+            ctx.fillRect(x, y, 20, 20);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
