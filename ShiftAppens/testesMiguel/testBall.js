@@ -103,13 +103,13 @@ function main(){
     var gamma = orientationHandler(event);
   
     ball.style.top =   (50 + gamma) + "px";
-    if(gamma < -50 && gamma > -90){
+    if(gamma < -40 && gamma > -90){
       ball2.style.background = "red";
     }
     else{
       ball2.style.background = "blue";
     }
-    if(gamma  < 90 && gamma > 50 ){
+    if(gamma  < 90 && gamma > 40 ){
       ball3.style.background = "red";
     }else{
       ball3.style.background = "blue";
