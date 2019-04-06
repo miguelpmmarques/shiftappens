@@ -16,9 +16,10 @@ function reset(ev) {
     y = 0;
 }
 function handleOrientation(event) {
-    calibate.addEventListener("click",reset)
-    x = event.beta;  // In degree in the range [-180,180]
-    y = event.gamma; // In degree in the range [-90,90]
+    
+  x = event.beta;  // In degree in the range [-180,180]
+  y = event.gamma; // In degree in the range [-90,90]
+  calibate.addEventListener("click",reset);
 
   output.innerHTML  += "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
