@@ -10,6 +10,8 @@ calibate.addEventListener("click",reset)
 function reset(ev) {
     maxX = garden.clientWidth  - ball.clientWidth;
     maxY = garden.clientHeight - ball.clientHeight;
+    x = 0;  // In degree in the range [-180,180]
+    y = 0;
 
 }
 function handleOrientation(event) {
