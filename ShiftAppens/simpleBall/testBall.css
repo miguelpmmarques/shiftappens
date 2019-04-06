@@ -26,3 +26,11 @@
     font-weight: bold;
     border-radius: 20%;
 }
+/*
+ball   = document.querySelector('.ball');
+garden = document.querySelector('.garden');
+maxX = garden.clientWidth  - ball.clientWidth;
+maxY = garden.clientHeight - ball.clientHeight;
+x = 0;  // In degree in the range [-180,180]
+y = 0;
+*/

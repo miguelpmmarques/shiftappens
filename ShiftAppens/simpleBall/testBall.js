@@ -5,22 +5,22 @@ var output = document.querySelector('.output');
 var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 var calibate = document.getElementById("calibrate")
-var x;  // In degree in the range [-180,180]
-var y;
-
-function reset(ev) {
-    maxX = garden.clientWidth  - ball.clientWidth;
-    maxY = garden.clientHeight - ball.clientHeight;
-    x = 0;  // In degree in the range [-180,180]
-    y = 0;
-
-}
 function handleOrientation(event) {
-    calibate.addEventListener("click",reset)
-    x = event.beta;  // In degree in the range [-180,180]
-    y = event.gamma; // In degree in the range [-90,90]
+  var x = event.beta;  // In degree in the range [-180,180]
+  var y = event.gamma; // In degree in the range [-90,90]
+  calibate.addEventListener("click",reset)
 
-  output.innerHTML  += "beta : " + x + "\n";
+  function reset() {
+
+      ball   = document.querySelector('.ball');
+      garden = document.querySelector('.garden');
+      maxX = garden.clientWidth  - ball.clientWidth;
+      maxY = garden.clientHeight - ball.clientHeight;
+      x = 0;  // In degree in the range [-180,180]
+      y = 0;
+  }
+
+  output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
 
   // Because we don't want to have the device upside down
