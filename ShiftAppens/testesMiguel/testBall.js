@@ -105,7 +105,7 @@ function main(){
     var alpha = rtrn[0];
     var gamma = rtrn[1];
     ball.style.top =   (50 + gamma) + "px";
-    if(gamma >-40 && gamma < -90 && alpha < ){
+    if(gamma >-40 && gamma < -90 && alpha < 12){
       ball2.style.background = "red";
     }
     else{
