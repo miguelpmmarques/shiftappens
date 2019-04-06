@@ -5,8 +5,8 @@ var output = document.querySelector('.output');
 var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 var calibate = document.getElementById("calibrate")
-var x = event.beta;  // In degree in the range [-180,180]
-var y = event.gamma;
+var x;  // In degree in the range [-180,180]
+var y;
 
 function reset(ev) {
     maxX = garden.clientWidth  - ball.clientWidth;
