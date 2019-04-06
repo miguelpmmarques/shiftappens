@@ -4,7 +4,7 @@ var output = document.querySelector('.output');
 var x;
 var y;
 
-var //maxX = garden.clientWidth  - ball.clientWidth;
+ //maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 var calibrate = document.getElementById("calibrate")
 
