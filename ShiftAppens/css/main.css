@@ -5,7 +5,7 @@ body
 }
 
 iframe, nav
-{	
+{
 	width: 100%;
 	margin: auto;
 }
@@ -22,11 +22,6 @@ nav
 	height: 30px;
 }
 
-iframe, nav, button
-{
-	background: gray;
-}
-
 * {
     outline: 0;
 }
@@ -38,9 +33,9 @@ button
 	margin: 0px;
 	padding: 0px;
 	padding: 0px;
-	position: relative;	
+	position: relative;
 	left: 510px;
-	top: 3px;		
+	top: 3px;
 }
 
 button img
@@ -49,5 +44,3 @@ button img
 	width: 24px;
 	height: 24px;
 }
-
-
