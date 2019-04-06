@@ -13,6 +13,10 @@ var maxY = garden.clientHeight - ball.clientHeight;
 
 var x;  // In degree in the range [-180,180]
 var y;
+var z;
+var x1;
+var y1;
+var z1;
 
 
 (function()
@@ -46,12 +50,12 @@ function handleOrientation(event) {
   ball.style.left = (maxY*y/180 - 10) + "px";
 }
 function handleMotion(event){
-  x = event.acceleration.x;
-  y = event.acceleration.y;
-  z = event.acceleration.z;
-  output.innerHTML = "x: " + x + "\n";
-  output.innerHTML += "y: " + y + "\n";
-  output.innerHTML += "z: " + z + "\n";
+  x1 = event.acceleration.x;
+  y1 = event.acceleration.y;
+  z1 = event.acceleration.z;
+  output.innerHTML = "x: " + x1 + "\n";
+  output.innerHTML += "y: " + y1 + "\n";
+  output.innerHTML += "z: " + z1 + "\n";
   if(x<-1*sensitivity )
   {
     ball4.style.background = "red"
@@ -59,18 +63,18 @@ function handleMotion(event){
   else{
     ball4.style.background = "blue";
   }
-  if(x>sensitivity ){
+  if(x1>sensitivity ){
     ball1.style.background = "red";
   }else{
     ball1.style.background = "blue";
   }
   
-  if(y> sensitivity ){
+  if(y1> sensitivity ){
     ball2.style.background = "red";
   }else{
     ball2.style.background = "blue";
   }
-  if(z > sensitivity ){
+  if(z1 > sensitivity ){
     ball3.style.background = "red";
   }else{
     ball3.style.background = "blue";
