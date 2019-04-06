@@ -15,8 +15,8 @@ function handleOrientation(event) {
   y = event.gamma; // In degree in the range [-90,90]
   
 
-  output.innerHTML  += "beta : " + x + "\n";
-  output.innerHTML += "gamma: " + y + "\n";
+  output.innerHTML  = "beta : " + x + "\n";
+  output.innerHTML  +="gamma: " + y + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
@@ -30,8 +30,8 @@ function handleOrientation(event) {
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
-  ball.style.top  = (maxX*x/180 - 10) + "px";
-  ball.style.left = (maxY*y/180 - 10) + "px";
+  paddle1.style.top  = (maxX*x/180 - 10) + "px";
+  paddle1.style.left = (maxY*y/180 - 10) + "px";
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
