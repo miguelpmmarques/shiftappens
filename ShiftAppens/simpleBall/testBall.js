@@ -28,8 +28,8 @@ function handleOrientation(event) {
   }
 
   //output.innerHTML  = "beta : " + x + "\n";
-  output.innerHTML += "gamma: " + y + "\n";
-  output.innerHTML += "alpha:" + z + "\n";
+  output.innerHTML = "gamma: " + y + "\n";
+  //output.innerHTML += "alpha:" + z + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
@@ -48,4 +48,3 @@ function handleOrientation(event) {
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
-
