@@ -8,15 +8,7 @@ var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 const sensitivity = 3;
 
-var maxX = garden.clientWidth  - ball.clientWidth;
-var maxY = garden.clientHeight - ball.clientHeight;
 
-var x;  // In degree in the range [-180,180]
-var y;
-var z;
-var x1;
-var y1;
-var z1;
 
 
 (function()
@@ -24,11 +16,11 @@ var z1;
 	window.addEventListener("load", main);
 }());
 
-function handleOrientation(event) {
+function orientationHandler(event) {
     
-  x = event.beta;  // In degree in the range [-180,180]
-  y = event.gamma; // In degree in the range [-90,90]
-  z = event.alpha;
+  var x = event.beta;  // In degree in the range [-180,180]
+  var y = event.gamma; // In degree in the range [-90,90]
+  var z = event.alpha;
   //output.innerHTML  = "beta : " + x + "\n";
   //output.innerHTML  +="gamma: " + y + "\n";
   //output.innerHTML +="alpha: " + z + "\n";
@@ -46,46 +38,60 @@ function handleOrientation(event) {
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
-  ball.style.top  = (maxX*x/180 - 10) + "px";
-  ball.style.left = (maxY*y/180 - 10) + "px";
+
 }
-function handleMotion(event){
-  x1 = event.acceleration.x;
-  y1 = event.acceleration.y;
-  z1 = event.acceleration.z;
-  output.innerHTML = "x: " + x1 + "\n";
-  output.innerHTML += "y: " + y1 + "\n";
-  output.innerHTML += "z: " + z1 + "\n";
-  if(x1<-1*sensitivity )
+function motionHandler(event){
+  var x = event.acceleration.x;
+  var y = event.acceleration.y;
+  var z = event.acceleration.z;
+  output.innerHTML = "x: " + x + "\n";
+  output.innerHTML += "y: " + y + "\n";
+  output.innerHTML += "z: " + z + "\n";
+  if(x<-1*sensitivity )
   {
     ball4.style.background = "red"
   }
   else{
     ball4.style.background = "blue";
   }
-  if(x1>sensitivity ){
+  if(x>sensitivity ){
     ball1.style.background = "red";
   }else{
     ball1.style.background = "blue";
   }
   
-  if(y1> sensitivity ){
+  if(y> sensitivity ){
     ball2.style.background = "red";
   }else{
     ball2.style.background = "blue";
   }
-  if(z1 > sensitivity ){
+  if(z > sensitivity ){
     ball3.style.background = "red";
   }else{
     ball3.style.background = "blue";
   }
     
-
+  return[x,y]
   
 
 }
 function main(){
+  var maxX = garden.clientWidth  - ball.clientWidth;
+  var maxY = garden.clientHeight - ball.clientHeight;
+
+  
+  function handleMotion(event){
+    motionHandler(event);
+  }
+
+  function handleOrientation(event){
+    var rtrn = orientationHandler(event);
+    ball.style.top  = (rtrn[0]*x/180 - 10) + "px";
+    ball.style.left = (rtrn[1]*y/180 - 10) + "px";
+  }
   window.addEventListener('deviceorientation', handleOrientation);
   window.addEventListener('devicemotion', handleMotion);
+
+
 }
 
