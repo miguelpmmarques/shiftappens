@@ -17,9 +17,9 @@ function handleOrientation(event) {
 
   
 
-  output.innerHTML  = "beta : " + x + "\n";
-  output.innerHTML  +="gamma: " + y + "\n";
-  output.innerHTML +="alpha: " + z + "\n";
+  //output.innerHTML  = "beta : " + x + "\n";
+  //output.innerHTML  +="gamma: " + y + "\n";
+  //output.innerHTML +="alpha: " + z + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
@@ -41,7 +41,7 @@ function handleMotion(event){
   x = event.acceleration.x;
   y = event.acceleration.y;
   z = event.accelaration.z;
-  output.innerHTML += "x: " + x + "\n";
+  output.innerHTML = "x: " + x + "\n";
   output.innerHTML += "y: " + y + "\n";
   output.innerHTML += "z: " + z + "\n";
 
