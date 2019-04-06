@@ -15,8 +15,7 @@ function handleOrientation(event) {
     window.x = event.beta;  // In degree in the range [-180,180]
     window.y = event.gamma; // In degree in the range [-90,90]
   calibrate.addEventListener("click",function(ev){
-       window.x = 0;
-       window.y = 90;
+       location.reload();
   })
 
   /*function reset() {
