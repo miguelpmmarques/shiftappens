@@ -22,6 +22,8 @@ function orientationHandler(event) {
   var x = event.beta;  // In degree in the range [-180,180]
   var y = event.gamma; // In degree in the range [-90,90]
   var z = event.alpha;
+  if (y < -90) { y = -90};
+  y += 90;
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML  +="gamma: " + y + "\n";
   output.innerHTML +="alpha: " + z ;
@@ -106,9 +108,9 @@ function main(){
       ball2.style.background = "blue";
     }
     else{
-      ball2.style.background = "redd";
+      ball2.style.background = "red";
     }
-    if(gamma  < 90 && gamma > 40 ){
+    if(gamma  > -40 && gamma <90 ){
       ball3.style.background = "blue";
     }else{
       ball3.style.background = "red";
