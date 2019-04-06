@@ -10,13 +10,7 @@ var y;
 
 function handleOrientation(event) {
     function reset(ev) {
-        maxX = garden.clientWidth  - ball.clientWidth;
-        maxY = garden.clientHeight - ball.clientHeight;
-        x = 0;  // In degree in the range [-180,180]
-        y = 0;
-        ball.style.top  = (maxX*x/180 - 10) + "px";
-        ball.style.left = (maxY*y/180 - 10) + "px";
-        output.innerHTML  = "beta : " + x + "\n";
+        
         output.innerHTML += "gamma: " + y + "\n";
     }
     calibate.addEventListener("click",reset)
