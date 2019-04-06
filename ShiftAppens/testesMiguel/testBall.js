@@ -41,9 +41,9 @@ function handleMotion(event){
   x = event.accelaration.x;
   y = event.accelatation.y;
   z = event.accelaration.z;
-  output2.innerHTML = "x: " + x + "\n";
-  output2.innerHTML += "y: " + y + "\n";
-  output2.innerHTML += "z: " + z + "\n";
+  output.innerHTML += "x: " + x + "\n";
+  output.innerHTML += "y: " + y + "\n";
+  output.innerHTML += "z: " + z + "\n";
 
 }
 
