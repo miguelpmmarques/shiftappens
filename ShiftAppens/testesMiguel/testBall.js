@@ -44,7 +44,7 @@ function handleMotion(event){
   output.innerHTML = "x: " + x + "\n";
   output.innerHTML += "y: " + y + "\n";
   output.innerHTML += "z: " + z + "\n";
-  garden.style.background = "#" + "00FF00";
+  garden.style.background = "blue";
 
 }
 
