@@ -4,13 +4,13 @@ var output = document.querySelector('.output');
 
 var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
-var calibate = document.getElementById("calibrate")
+var calibate = window.getElementById("calibrate")
 var x;  // In degree in the range [-180,180]
 var y;
 
 function handleOrientation(event) {
     function reset(ev) {
-        
+
         output.innerHTML += "gamma: " + y + "\n";
     }
     calibate.addEventListener("click",reset)
