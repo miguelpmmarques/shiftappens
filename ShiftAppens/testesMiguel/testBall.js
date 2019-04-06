@@ -40,7 +40,7 @@ function handleOrientation(event) {
 function handleMotion(event){
   x = event.acceleration.x;
   y = event.acceleration.y;
-  z = event.accelaration.z;
+  z = event.acceleration.z;
   output.innerHTML = "x: " + x + "\n";
   output.innerHTML += "y: " + y + "\n";
   output.innerHTML += "z: " + z + "\n";
