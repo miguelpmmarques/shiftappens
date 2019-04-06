@@ -5,21 +5,15 @@ var paddle1 = document.querySelector('.rectangle');
 
 var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
-var calibate = document.getElementById('calibrate')
+
 var x;  // In degree in the range [-180,180]
 var y;
 
-function reset(ev) {
-    maxX = garden.clientWidth  - ball.clientWidth;
-    maxY = garden.clientHeight - ball.clientHeight;
-    x = 0;  // In degree in the range [-180,180]
-    y = 0;
-}
 function handleOrientation(event) {
     
   x = event.beta;  // In degree in the range [-180,180]
   y = event.gamma; // In degree in the range [-90,90]
-  calibate.addEventListener("click",reset);
+  
 
   output.innerHTML  += "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
