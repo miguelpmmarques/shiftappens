@@ -13,7 +13,7 @@ var debug = document.getElementById("debug")
 
 function handleOrientation(event) {
     window.x = event.beta;  // In degree in the range [-180,180]
-    window.y = event.gama; // In degree in the range [-90,90]
+    window.y = event.beta; // In degree in the range [-90,90]
   calibrate.addEventListener("click",function(ev){
        location.reload();
   })
