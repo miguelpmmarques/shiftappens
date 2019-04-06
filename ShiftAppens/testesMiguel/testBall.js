@@ -24,7 +24,7 @@ function orientationHandler(event) {
   var z = event.alpha;
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML  +="gamma: " + y + "\n";
-  output.innerHTML +="alpha: " + z + "\nUltimo\n";
+  output.innerHTML +="alpha: " + z ;
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
@@ -103,15 +103,15 @@ function main(){
   
     ball.style.top =   (50 + gamma) + "px";
     if(gamma < -40 && gamma > -90){
-      ball2.style.background = "red";
-    }
-    else{
       ball2.style.background = "blue";
     }
+    else{
+      ball2.style.background = "redd";
+    }
     if(gamma  < 90 && gamma > 40 ){
-      ball3.style.background = "red";
-    }else{
       ball3.style.background = "blue";
+    }else{
+      ball3.style.background = "red";
     }
 
   
