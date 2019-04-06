@@ -50,13 +50,16 @@ function handleOrientation(event) {
   // x and y to [0,180]
   x += 90;
   y += 90;
+  let m = (maxX*y/120);
+  if (y >  125) { y =  125};
+  if (y < -90) { y = -90};
 
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
   ball.style.top  = 20 + "px";
-  ball.style.left = (maxX*y/120-10) + "px";
+  ball.style.left = m + "px";
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
