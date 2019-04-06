@@ -8,22 +8,19 @@ var calibate = document.getElementById("calibrate")
 var x;  // In degree in the range [-180,180]
 var y;
 
+function reset(ev) {
+    maxX = garden.clientWidth  - ball.clientWidth;
+    maxY = garden.clientHeight - ball.clientHeight;
+    x = 0;  // In degree in the range [-180,180]
+    y = 0;
+
+}
 function handleOrientation(event) {
-    function reset(ev) {
-        maxX = garden.clientWidth  - ball.clientWidth;
-        maxY = garden.clientHeight - ball.clientHeight;
-        x = 0;  // In degree in the range [-180,180]
-        y = 0;
-        ball.style.top  = (maxX*x/180 - 10) + "px";
-        ball.style.left = (maxY*y/180 - 10) + "px";
-        output.innerHTML  = "beta : " + x + "\n";
-        output.innerHTML += "gamma: " + y + "\n";
-    }
     calibate.addEventListener("click",reset)
     x = event.beta;  // In degree in the range [-180,180]
     y = event.gamma; // In degree in the range [-90,90]
 
-  output.innerHTML  = "beta : " + x + "\n";
+  output.innerHTML  += "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
 
   // Because we don't want to have the device upside down
