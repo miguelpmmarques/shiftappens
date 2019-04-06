@@ -38,8 +38,8 @@ function orientationHandler(event) {
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
-  return[x,y];
-  
+  //return[x,y];
+  return gamma;
 }
 function motionHandler(event){
   var x = event.acceleration.x;
@@ -103,9 +103,10 @@ function main(){
   }
 
   function handleOrientation(event){
-    var rtrn = orientationHandler(event);
-    ball.style.top  = (rtrn[0]*maxX/180 - 10) + "px";
-    ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
+    var gamma = orientationHandler(event);
+    ball.style.top =   garden.style.height/2  + gamma;
+    //ball.style.top  = (rtrn[0]*maxX/180 - 10) + "px";
+    //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
   window.addEventListener('deviceorientation', handleOrientation);
   window.addEventListener('devicemotion', handleMotion);
