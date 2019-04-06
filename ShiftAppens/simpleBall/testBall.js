@@ -51,10 +51,10 @@ function handleOrientation(event) {
   x += 90;
   y += 90;
   var m = (maxX*y/120)-30;
-  if (m >  180) { m =  180};
+  if (m >  180) { m = 180};
   if (m < 10) { m = 10};
   output.innerHTML  = "beta : " + x + "\n";
-  output.innerHTML += "gamma: " + y + "\n";
+  output.innerHTML += "gamma: " + m + "\n";
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
   ball.style.top  = 20 + "px";
