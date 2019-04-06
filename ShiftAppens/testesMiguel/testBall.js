@@ -1,10 +1,10 @@
 var ball   = document.querySelector('.ball');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
-var paddle1 = document.querySelector('.rectangle');
+var rectangle = document.querySelector('.rectangle');
 
-var maxX = garden.clientWidth  - paddle1.clientWidth;
-var maxY = garden.clientHeight - paddle1.clientHeight;
+var maxX = garden.clientWidth  - rectangle.clientWidth;
+var maxY = garden.clientHeight - rectangle.clientHeight;
 
 var x;  // In degree in the range [-180,180]
 var y;
@@ -30,8 +30,8 @@ function handleOrientation(event) {
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
-  paddle1.style.top  = (maxX*x/180 - 10) + "px";
-  paddle1.style.left = (maxY*y/180 - 10) + "px";
+  rectangle.style.top  = (maxX*x/180 - 10) + "px";
+  rectangle.style.left = (maxY*y/180 - 10) + "px";
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
