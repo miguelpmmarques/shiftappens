@@ -28,8 +28,8 @@ function orientationHandler(event) {
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
-  if (x >  90) { x =  90};
-  if (x < -90) { x = -90};
+  if (y >  90) { y =  90};
+  if (y < -90) { y = -90};
 
   
 
@@ -57,17 +57,17 @@ function motionHandler(event){
     ball1.style.background = "blue";
   }
   
-  if(y> sensitivity ){
-    ball2.style.background = "red";
-    return 1;
-  }else{
-    ball2.style.background = "blue";
-  }
-  if(z > sensitivity ){
-    ball3.style.background = "red";
-  }else{
-    ball3.style.background = "blue";
-  }
+  //if(y> sensitivity ){
+  //  ball2.style.background = "red";
+  //  return 1;
+  //}else{
+  //  ball2.style.background = "blue";
+  //}
+  //if(z > sensitivity ){
+  //  ball3.style.background = "red";
+  //}else{
+  //  ball3.style.background = "blue";
+  //}
     
   
 
@@ -101,8 +101,21 @@ function main(){
 
   function handleOrientation(event){
     var gamma = orientationHandler(event);
-
+  
     ball.style.top =   (50 + gamma) + "px";
+    if(gamma < -50 && gamma > -90){
+      ball2.style.color = "red";
+    }
+    else{
+      ball2.style.color = "blue";
+    }
+    if(gamma  < 90 && gama > 50 ){
+      ball3.style.color = "red";
+    }else{
+      ball3.style.color = "blue";
+    }
+
+  
     //ball.style.top  = (rtrn[0]*maxX/180 - 10) + "px";
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
