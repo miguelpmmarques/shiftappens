@@ -4,7 +4,7 @@ var ball2   = document.querySelector('.ball2');
 var ball3   = document.querySelector('.ball3');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
-
+const sensitivity = 5;
 
 var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
@@ -47,22 +47,22 @@ function handleMotion(event){
   output.innerHTML = "x: " + x + "\n";
   output.innerHTML += "y: " + y + "\n";
   output.innerHTML += "z: " + z + "\n";
-  if(x<-1)
+  if(x<-1*sensitivity )
   {
     ball1.style.background = "yellow"
   }
-  else if(x>1){
+  else if(x>sensitivity ){
     ball1.style.background = "red";
   }else{
     ball1.style.background = "blue";
   }
   
-  if(y> 5){
+  if(y> sensitivity ){
     ball2.style.background = "red";
   }else{
     ball2.style.background = "blue";
   }
-  if(z > 5){
+  if(z > sensitivity ){
     ball3.style.background = "red";
   }else{
     ball3.style.background = "blue";
