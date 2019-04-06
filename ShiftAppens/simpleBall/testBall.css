@@ -27,8 +27,22 @@
     border-radius: 20%;
 }
 
-#debug{
+#debug1{
     position: absolute;
+    top: 320px;
+    left  : 30px;
+    width : 150px;
+    height: 30px;
+    font-size: 10px;
+}
+
+#debug2{
+    position: absolute;
+    top: 340px;
+    left  : 30px;
+    width : 150px;
+    height: 30px;
+    font-size: 10px;
 }
 /*
 ball   = document.querySelector('.ball');

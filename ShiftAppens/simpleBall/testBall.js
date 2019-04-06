@@ -8,7 +8,7 @@ var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 var calibrate = document.getElementById("calibrate")
 
-var debug = document.getElementById("debug")
+var debug1 = document.getElementById("debug1")
 
 
 function handleOrientation(event) {
@@ -17,7 +17,7 @@ function handleOrientation(event) {
   calibrate.addEventListener("click",reset)
 
   function reset() {
-      debug.innerHTML = "-> "+Math.random()
+      debug1.innerHTML = "-> "+Math.random()
       ball   = document.querySelector('.ball');
       garden = document.querySelector('.garden');
       maxX = garden.clientWidth  - ball.clientWidth;
