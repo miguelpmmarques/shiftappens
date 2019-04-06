@@ -25,13 +25,13 @@ function orientationHandler(event) {
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML  +="gamma: " + y + "\n";
   output.innerHTML +="alpha: " + z + "\nUltimo\n";
-
+  y += 90;
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
   if (y >  90) { y =  90};
   if (y < -90) { y = -90};
 
-  y += 90;
+  
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
