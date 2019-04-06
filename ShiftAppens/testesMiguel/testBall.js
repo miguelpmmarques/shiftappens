@@ -5,7 +5,7 @@ var paddle1 = document.querySelector('.rectangle');
 
 var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
-var calibate = document.getElementById("calibrate")
+var calibate = document.getElementById('calibrate')
 var x;  // In degree in the range [-180,180]
 var y;
 
