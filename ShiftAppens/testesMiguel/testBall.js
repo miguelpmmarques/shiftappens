@@ -106,10 +106,10 @@ function main(){
     ball.style.top =   (50 + gamma) + "px";
     
     if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
-      h = (gamma_max1 - gamma_min1)/4;
-      aux = gamma- gamma_min1;
-      n =Math.floor( h%aux);
-      output.innerHTML += "n: " + n+ "\n";
+      //h = (gamma_max1 - gamma_min1)/4;
+      //aux = gamma- gamma_min1;
+      //n = Math.floor( h%aux);
+      //output.innerHTML = "n: " + n + "\n";
 
 
       ball2.style.background = "green";
