@@ -62,31 +62,48 @@ function main(){
   var xcount = 0;
   var prev_x = 0;
   var tempo = 1000;
+  var objective = Nan;
+  var objectiveMet = false;
 
   
-  setInterval(generate_actions,tempo );
+  var intervalId = setInterval(generate_actions,tempo );
 
   function generate_actions(){
+
+    if (objective != NaN){
+      if(objectiveMet){
+        clearInterval(intervalId);
+        tempo -= 200;
+        intervalId = setInterval(generate_actions,tempo );
+      }
+    }
+
     output.innerHTML = "";
     plate.play();
+    objective = NaN;
+    var objectiveMet = false;
     if(RandInt(0,100) < 40){
       
       switch(RandInt(0,3)) {
         case 0:
           output.innerHTML += "Salta";
+          objective = 0
 
           break;
         case 1:
           output.innerHTMLA += "Agacha";
+          objective = 1;
           break;
         case 2:
           output.innerHTML += "Limbo";
+          objective = 2;
           break;
         case 3:
           output.innerHTML += "Curva";
+          objective = 3;
           break;
       }
-      tempo -= 20;
+      
 
     }
   }
@@ -110,6 +127,9 @@ function main(){
         occupied = true;
         ball4.style.background = "red";
         sprite.src = imgFolder + "12.png";
+        if(objective == 0){
+          objectiveMet = true;
+        }
         setTimeout(stopWait, waitTime);
         
        
@@ -122,6 +142,9 @@ function main(){
         occupied = true;
         ball1.style.background = "red";
         sprite.src = imgFolder + "0.png";
+        if(objective == 1){
+          objectiveMet = true;
+        }
         setTimeout(stopWait,waitTime);
         
       }
@@ -162,6 +185,9 @@ function main(){
 
         ball2.style.background = "green";
         sprite.src = imgFolder + n.toString(10) + ".png";
+        if(objective == 2){
+          objectiveMet = true;
+        }
 
       }
       else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
@@ -171,6 +197,9 @@ function main(){
         n = 20-n;
         ball3.style.background ="red";
         sprite.src = imgFolder + n.toString(10)+".png";
+        if(objective == 3){
+          objectiveMet = true;
+        }
       }else{
         ball2.style.background = "blue";
         ball3.style.background = "blue";
