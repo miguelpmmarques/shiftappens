@@ -12,8 +12,6 @@ const sensitivity = 1.5;
 const xlimit = 3;
 const waitTime = 500;//milliseconds
 
-
-
 (function()
 {
 	window.addEventListener("load", main);
@@ -52,11 +50,11 @@ function RandInt(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-
 function main(){
   var plate = new Audio(imgFolder + "plate.wav");
   var sprite = document.getElementById('sprite');
   sprite.src = imgFolder + "6.png";
+  sprite.setAttribute('style','transform:rotate(90deg)');
   var maxX = garden.clientWidth  - ball.clientWidth;
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
@@ -109,8 +107,6 @@ function main(){
           objective = 3;
           break;
       }
-      
-
     }
   }
 
@@ -127,7 +123,6 @@ function main(){
       prev_x = rtrn;
       xcount = 0;
     }
-
     if(xcount >= xlimit && prev_x == 1){
       if(!occupied){
         occupied = true;
@@ -140,8 +135,6 @@ function main(){
         
        
       }
-      
-  
     }
     else if(xcount >= xlimit && prev_x == 0){
       if(!occupied){
@@ -154,8 +147,6 @@ function main(){
         setTimeout(stopWait,waitTime);
         
       }
-     
-      
     }
     else{
       ball1.style.background = "blue";
@@ -209,19 +200,11 @@ function main(){
       }else{
         ball2.style.background = "blue";
         ball3.style.background = "blue";
-      
         sprite.src = imgFolder + "6.png";
-
-
       }
     }
-  
-    //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px";
-    //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
   window.addEventListener('deviceorientation', handleOrientation);
   window.addEventListener('devicemotion', handleMotion);
-
-
 }
 
