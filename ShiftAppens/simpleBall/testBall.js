@@ -4,7 +4,7 @@
 {
 	window.addEventListener("load", main);
 }());
-const speedBall = 10;
+const speedBall = 5;
 function main() {
 
 
@@ -14,6 +14,7 @@ function main() {
     var bally = 20;
     var dx = 1;
     var dy = -1;
+    var m = 20;
 
 
     function draw() {
@@ -27,22 +28,22 @@ function main() {
         }
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(y, x, 60, 20);
+            ctx.fillRect(20, m, 60, 20);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
         }
 
-        ctx.clearRect(0, 0, canvas.width, canvas.width);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawBall();
         drawRect();
-        if (ballx + dx > 300) {
+        if (ballx + dx > canvas.width) {
             dx = -dx;
         }
         if (ballx + dx < 0) {
             dx = -dx;
         }
-        if (bally + dy > 200) {
+        if (bally + dy > canvas.height) {
             dy = -dy;
         }
         if (bally + dy < 0) {
