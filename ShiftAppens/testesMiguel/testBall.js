@@ -83,7 +83,7 @@ function main(){
       }
     }
 
-    output.innerHTML = "obj: " + objective;
+    output.innerHTML = "obj: " + objective+"\n";
     plate.play();
     objective = NaN;
     var objectiveMet = false;
