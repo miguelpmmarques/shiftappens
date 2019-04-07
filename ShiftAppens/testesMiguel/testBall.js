@@ -66,7 +66,7 @@ function motionHandler(event){
 }
 function main(){
   var sprite = document.getElementById('sprite');
-  sprite.src = imgFolder + "6.png";
+  sprite.src = imgFolder + "13.png";
   var maxX = garden.clientWidth  - ball.clientWidth;
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
