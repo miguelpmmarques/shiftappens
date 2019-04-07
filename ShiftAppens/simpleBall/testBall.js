@@ -107,7 +107,7 @@ function main() {
             ctx.closePath();
         }
 
-        output.innerHTML += "gamma: " + y + "\n";
+        output.innerHTML = "gamma: " + y+20 + "\n";
     }
 
 
