@@ -109,11 +109,12 @@ function main(){
       var h = (gamma_max1 - gamma_min1)/4;
       var aux = Math.round(gamma - gamma_min1);
       var n =Math.floor( aux / h); 
+      n +=13;
       output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
 
 
       ball2.style.background = "green";
-      sprite.src = imgFolder +( 13 + n).toString(10) + ".png";
+      sprite.src = imgFolder + n.toString(10) + ".png";
       
     }
     else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
