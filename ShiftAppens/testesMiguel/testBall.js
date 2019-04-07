@@ -75,7 +75,7 @@ function main(){
         clearInterval(intervalId);
         tempo -= 1;
         intervalId = setInterval(generate_actions,tempo );
-        output.innerHTML = "congrats!";
+        
         garden.style.background = "red";
       }
       else{
@@ -96,7 +96,7 @@ function main(){
 
           break;
         case 1:
-          output.innerHTMLA += "Agacha";
+          output.innerHTML += "Agacha";
           objective = 1;
           break;
         case 2:
@@ -190,7 +190,7 @@ function main(){
 
         ball2.style.background = "green";
         sprite.src = imgFolder + n.toString(10) + ".png";
-        if(objective == 2){
+        if(objective == 3){
           objectiveMet = true;
         }
 
@@ -202,7 +202,7 @@ function main(){
         n = 20-n;
         ball3.style.background ="red";
         sprite.src = imgFolder + n.toString(10)+".png";
-        if(objective == 3){
+        if(objective == 2){
           objectiveMet = true;
         }
       }else{
