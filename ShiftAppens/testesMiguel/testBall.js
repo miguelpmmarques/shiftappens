@@ -6,8 +6,9 @@ var ball3   = document.querySelector('.ball3');
 var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
+var occupied = false;
 const imgFolder = "../resources/";
-const sensitivity = 4;
+const sensitivity = 3;
 const xlimit = 5;
 
 
@@ -56,7 +57,9 @@ function main(){
   var xcount = 0;
   var prev_x = 0;
   
-
+  function stopWait(){
+      occupied = false;
+  }
 
   function handleMotion(event){
     var rtrn = motionHandler(event);
@@ -69,20 +72,26 @@ function main(){
     }
 
     if(xcount >= xlimit && prev_x == 1){
-      if(ball1.style.background != "green"){
-        //setInterval(down, 2000);
+      if(!occupied){
+        occupied = true;
         ball4.style.background = "red";
+        sprite.src = imgFolder + "12.png";
+        setTimeout(stopWait, 2000);
+        
        
       }
       
   
     }
     else if(xcount >= xlimit && prev_x == 0){
-      if(ball4.style.background != "red"){
-        ball1.style.background = "green";
+      if(!occupied){
+        occupied = true;
+        ball3.style.background = "red";
+        sprite.src = imgFolder + "0.png";
+        setTimeout(stopWait,2000);
         
       }
-      sprite.src = imgFolder + "0.png";
+     
       
     }
     else{
