@@ -75,6 +75,7 @@ function main(){
         clearInterval(intervalId);
         tempo -= 200;
         intervalId = setInterval(generate_actions,tempo );
+        output.innerHTML = "congrats!";
       }
     }
 
