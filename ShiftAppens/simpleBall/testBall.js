@@ -10,8 +10,8 @@ function main() {
 
     var canvas = document.getElementsByClassName("garden")[0];
     var ctx = canvas.getContext("2d");
-    var ballx = 20;
-    var bally = 20;
+    var ballx = 100;
+    var bally = 100;
     var dx = 1;
     var dy = -1;
     var m = 20;
@@ -54,8 +54,8 @@ function main() {
         }
         ballx += dx;
         bally += dy;
-        if (colision_detect(ballx,bally,5,5,y+20, 20, 20, 60)) {
-            window.alert("Cona");
+        if (colision_detect(ballx-10,bally-10,20,20,y+20, 20, 60, 20)) {
+            console.log("Bateu");
             dy = -dy;
         }
 
@@ -83,9 +83,9 @@ function main() {
 
         window.x = event.beta;  // In degree in the range [-180,180]
         window.y = event.beta; // In degree in the range [-90,90]
-        calibrate.addEventListener("click",function(ev){
+            /*calibrate.addEventListener("click",function(ev){
             location.reload();
-        })
+        })*/
 
         x =  window.x;
         y =  window.y;
@@ -111,7 +111,6 @@ function main() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawRect();
-
         output.innerHTML  = "m : " + m-50 + "\n";
         output.innerHTML += "gamma: " + y + "\n";
 
