@@ -73,7 +73,7 @@ function main(){
     if (objective != NaN){
       if(objectiveMet){
         clearInterval(intervalId);
-        tempo -= 10;
+        tempo -= 1;
         intervalId = setInterval(generate_actions,tempo );
         output.innerHTML = "congrats!";
         garden.style.background = "red";
