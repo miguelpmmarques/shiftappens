@@ -86,7 +86,7 @@ function main(){
     else if(xcount >= xlimit && prev_x == 0){
       if(!occupied){
         occupied = true;
-        ball3.style.background = "red";
+        ball1.style.background = "red";
         sprite.src = imgFolder + "0.png";
         setTimeout(stopWait,2000);
         
