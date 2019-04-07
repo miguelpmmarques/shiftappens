@@ -42,27 +42,9 @@ function motionHandler(event){
 
     return 0;
   }
- 
   if(x>sensitivity ){
-    ball1.style.background = "red";
-  }else{
-    ball1.style.background = "blue";
+    return 1;
   }
-  
-  //if(y> sensitivity ){
-  //  ball2.style.background = "red";
-  //  return 1;
-  //}else{
-  //  ball2.style.background = "blue";
-  //}
-  //if(z > sensitivity ){
-  //  ball3.style.background = "red";
-  //}else{
-  //  ball3.style.background = "blue";
-  //} 
-    
-  
-
 }
 function main(){
   var sprite = document.getElementById('sprite');
@@ -83,21 +65,24 @@ function main(){
     }
 
     if(xcount >= xlimit && prev_x == 1){
-      if(ball4.style.background != "green"){
+      if(ball1.style.background != "green"){
         ball4.style.background = "red";
-        sprite.src = imgFolder + "12.png";
+       
       }
+      sprite.src = imgFolder + "12.png";
       
   
     }
     else if(xcount >= xlimit && prev_x == 0){
-      if(ball4.styl.background != "red"){
-        ball4.style.background = "green";
-        sprite.src = imgFolder + "0.png";
+      if(ball4.style.background != "red"){
+        ball1.style.background = "green";
+        
       }
+      sprite.src = imgFolder + "0.png";
       
     }
     else{
+      ball1.style.background = "blue";
       ball4.style.background = "blue";
     }
   }
