@@ -10,14 +10,15 @@ function main() {
 
     var canvas = document.getElementsByClassName("garden")[0];
     var ctx = canvas.getContext("2d");
-    var ballx = 100;
-    var bally = 100;
+    var ballx = Math.floor(Math.random()*200) +50 ;
+    var bally = Math.floor(Math.random()*300) +50 ;
     var dx = 1;
     var dy = -1;
     var m = 20;
-
+    var score = 3;
     var x = 100;
     var y = 10;
+
 
 
     function draw() {
@@ -38,6 +39,8 @@ function main() {
         }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = "60px raleway";
+        ctx.strokeText("Lives - "+score, 40, 270);
         drawBall();
         drawRect();
         if (ballx + dx > canvas.width) {
@@ -50,6 +53,9 @@ function main() {
             dy = -dy;
         }
         if (bally + dy < 0) {
+            ballx = Math.floor(Math.random()*200) +50 ;
+            bally = Math.floor(Math.random()*300) +50 ;
+            score-=1;
             dy = -dy;
         }
         ballx += dx;
@@ -64,7 +70,7 @@ function main() {
 
 
 
-    var ball   = document.querySelector('.ball');
+
     var garden = document.querySelector('.garden');
     var output = document.querySelector('.output');
 
@@ -79,27 +85,19 @@ function main() {
         handleOrientation()
     }
 
-    function handleOrientation() {
+    function handleOrientation(ev) {
 
-        window.x = event.beta;  // In degree in the range [-180,180]
-        window.y = event.beta; // In degree in the range [-90,90]
-            /*calibrate.addEventListener("click",function(ev){
+
+        y = event.beta;
+
+        /*calibrate.addEventListener("click",function(ev){
             location.reload();
         })*/
-
-        x =  window.x;
-        y =  window.y;
-        if (x >  70) { x =  70};
-        if (x < -90) { x = -90};
 
         if (y >  90) { y =  90};
         if (y < -90) { y = -90};
 
-        x += 90;
         y += 90;
-        var m = (maxX*y/100)-40;
-        if (m >  280) { m =  280};
-        if (m < 60) { m = 60};
 
         function drawRect() {
             ctx.beginPath();
@@ -109,11 +107,7 @@ function main() {
             ctx.closePath();
         }
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawRect();
-        output.innerHTML  = "m : " + m-50 + "\n";
         output.innerHTML += "gamma: " + y + "\n";
-
     }
 
 
