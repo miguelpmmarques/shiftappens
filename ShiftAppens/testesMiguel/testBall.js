@@ -10,7 +10,7 @@ var occupied = false;
 const imgFolder = "../resources/";
 const sensitivity = 1;
 const xlimit = 3;
-const waitTime = 1500;//milliseconds
+const waitTime = 500;//milliseconds
 
 
 
