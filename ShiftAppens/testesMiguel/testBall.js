@@ -7,8 +7,8 @@ var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 const imgFolder = "../resources/";
-const sensitivity = 2;
-const xlimit = 3;
+const sensitivity = 4;
+const xlimit = 5;
 
 
 
@@ -37,7 +37,7 @@ function motionHandler(event){
   output.innerHTML = "x: " + x + "\n";
   output.innerHTML += "y: " + y + "\n";
   output.innerHTML += "z: " + z + "\n";
-  if(x<-1*sensitivity )
+  if(x<-1*sensitivity)
   {
 
     return 0;
