@@ -120,14 +120,14 @@ function main(){
     }
     if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
       ball3.style.background ="red";
-      sprite.src = imgFolder + "20.png";
+      sprite.src = imgFolder + "13.png";
     }else{
       ball3.style.background = "blue";
       sprite.src = imgFolder + "6.png";
     }
 
   
-    //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px";
+    //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px" ;
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
   window.addEventListener('deviceorientation', handleOrientation);
