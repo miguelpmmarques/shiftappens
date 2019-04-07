@@ -80,7 +80,7 @@ function main(){
       }
       else{
         garden.style.background = "blue";
-        Navigator.vibrate(100);
+        navigator.vibrate(100);
       }
     }
 
