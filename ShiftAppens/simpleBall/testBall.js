@@ -20,14 +20,14 @@ function main() {
 
         function drawBall() {
             ctx.beginPath();
-            ctx.arc(ballx, bally, 10, 0, Math.PI*2,true);
+            ctx.arc(ballx, bally, 10, 0, Math.PI*2);
             ctx.fillStyle = "#0095DD";
             ctx.closePath();
             ctx.fill();
         }
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(y, x, 20, 20);
+            ctx.fillRect(y, x, 60, 20);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
@@ -60,9 +60,9 @@ function main() {
     var garden = document.querySelector('.garden');
     var output = document.querySelector('.output');
     var x = 100;
-    var y = 20;
-    var maxX = garden.clientWidth  - ball.clientWidth;
-    var maxY = garden.clientHeight - ball.clientHeight;
+    var y = 10;
+    var maxX = garden.clientWidth;
+    var maxY = garden.clientHeight;
     var calibrate = document.getElementById("calibrate")
 
     var debug = document.getElementById("debug")
@@ -107,8 +107,7 @@ function main() {
 
         output.innerHTML  = "m : " + m-50 + "\n";
         output.innerHTML += "gamma: " + y + "\n";
-        ball.style.top  = 20 + "px";
-        ball.style.left = m-50 + "px";
+
     }
 
 
