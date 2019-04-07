@@ -1,4 +1,7 @@
 "use strict";
+
+import { get } from "https";
+
 var ball   = document.querySelector('.ball');
 var ball1   = document.querySelector('.ball1');
 var ball2   = document.querySelector('.ball2');
@@ -16,39 +19,6 @@ const waitTime = 1000;//milliseconds
 {
 	window.addEventListener("load", main);
 }());
-
-function orientationHandler(event) {
-    
-  var x = event.beta;  // In degree in the range [-180,180]
-  var y = event.gamma; // In degree in the range [-90,90]
-
-  if (y < -90) { y = -90};
-  y += 90;
-  //output.innerHTML  = "beta : " + x + "\n";
-  //output.innerHTML  +="gamma: " + y + "\n";
-  
-  return[x,y] ;
-}
-function motionHandler(event){
-  var x = event.acceleration.x;
-  var y = event.acceleration.y;
-  var z = event.acceleration.z;
-  //output.innerHTML += "y: " + y + "\n";
-  //output.innerHTML += "z: " + z + "\n";
-  //output.innerHTML = "x: " + x + "\n";
-  if(x<-1*sensitivity)
-  {
-
-    return 0;
-  }
-  if(x>sensitivity ){
-    return 1;
-  }
-}
-
-function RandInt(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
-}
 
 function main(){
   var plate = new Audio(imgFolder + "plate.wav");
@@ -133,8 +103,6 @@ function main(){
           objectiveMet = true;
         }
         setTimeout(stopWait, waitTime);
-        
-       
       }
     }
     else if(xcount >= xlimit && prev_x == 0){
@@ -146,7 +114,6 @@ function main(){
           objectiveMet = true;
         }
         setTimeout(stopWait,waitTime);
-        
       }
     }
     else{
@@ -169,18 +136,12 @@ function main(){
     var beta = rtrn[0];
     var gamma = rtrn[1];
     
-    //output.innerHTML += "occupied: " + occupied;
-
     ball.style.top =   (50 + gamma) + "px";
+    
     if(!occupied){
       if(gamma <gamma_max1 && gamma > gamma_min1 && ((beta < beta_max1 && beta > beta_min1) || (beta < -1*beta_min1 && beta > -1*beta_max1) )){
-        var h = (gamma_max1 - gamma_min1)/4;
-        var aux = Math.round(gamma - gamma_min1);
-        var n =Math.floor( aux / h); 
+        n = getInterval(gamma_min1,gamma_max1,gamma);
         n = 16-n;
-        //output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
-
-
         ball2.style.background = "green";
         sprite.src = imgFolder + n.toString(10) + ".png";
         if(objective == 3){
@@ -189,15 +150,14 @@ function main(){
 
       }
       else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
-        var h = (gamma_max2 - gamma_min2)/4;
-        var aux = Math.round(gamma - gamma_min2);
-        var n =Math.floor( aux / h); 
+        n = getInterval(gamma_min2,gamma_max2,gamma);
         n = 20-n;
         ball3.style.background ="red";
         sprite.src = imgFolder + n.toString(10)+".png";
         if(objective == 2){
           objectiveMet = true;
         }
+
       }else{
         ball2.style.background = "blue";
         ball3.style.background = "blue";
@@ -207,5 +167,38 @@ function main(){
   }
   window.addEventListener('deviceorientation', handleOrientation);
   window.addEventListener('devicemotion', handleMotion);
+}
+
+function orientationHandler(event) {
+    
+  var x = event.beta;  // In degree in the range [-180,180]
+  var y = event.gamma; // In degree in the range [-90,90]
+  
+  if (y < -90) { y = -90};
+  y += 90;
+  //output.innerHTML  = "beta : " + x + "\n";
+  //output.innerHTML  +="gamma: " + y + "\n";
+  return[x,y] ;
+}
+function motionHandler(event){
+  var x = event.acceleration.x;
+  if(x<-1*sensitivity)
+  {
+    return 0;
+  }
+  if(x>sensitivity ){
+    return 1;
+  }
+}
+
+function RandInt(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function getInterval(min, max , val){
+  var h = (max - min)/4;
+  var aux = Math.round(val - min);
+  var n =Math.floor( aux / h); 
+  return n;
 }
 
