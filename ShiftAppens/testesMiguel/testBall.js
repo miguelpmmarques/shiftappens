@@ -34,7 +34,7 @@ function main(){
   var objective = NaN;
   var objectiveMet = false;
 
-  
+
   var intervalId = setInterval(generate_actions,tempo );
 
   function generate_actions(){
@@ -44,7 +44,7 @@ function main(){
         clearInterval(intervalId);
         tempo -= 1;
         intervalId = setInterval(generate_actions,tempo );
-        
+
         garden.style.background = "red";
       }
       else{
@@ -58,7 +58,7 @@ function main(){
     objective = NaN;
     objectiveMet = false;
     if(RandInt(0,100) < 40){
-      
+
       switch(RandInt(0,4)) {
         case 0:
           output.innerHTML += "Salta";
@@ -135,9 +135,9 @@ function main(){
     var rtrn = orientationHandler(event);
     var beta = rtrn[0];
     var gamma = rtrn[1];
-    
+
     ball.style.top =   (50 + gamma) + "px";
-    
+
     if(!occupied){
       if(gamma <gamma_max1 && gamma > gamma_min1 && ((beta < beta_max1 && beta > beta_min1) || (beta < -1*beta_min1 && beta > -1*beta_max1) )){
         n = getInterval(gamma_min1,gamma_max1,gamma);
@@ -170,10 +170,10 @@ function main(){
 }
 
 function orientationHandler(event) {
-    
+
   var x = event.beta;  // In degree in the range [-180,180]
   var y = event.gamma; // In degree in the range [-90,90]
-  
+
   if (y < -90) { y = -90};
   y += 90;
   //output.innerHTML  = "beta : " + x + "\n";
@@ -198,7 +198,6 @@ function RandInt(min, max) {
 function getInterval(min, max , val){
   var h = (max - min)/4;
   var aux = Math.round(val - min);
-  var n =Math.floor( aux / h); 
+  var n =Math.floor( aux / h);
   return n;
 }
-
