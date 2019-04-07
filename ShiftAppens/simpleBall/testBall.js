@@ -5,18 +5,21 @@
 	window.addEventListener("load", main);
 }());
 const speedBall = 5;
+const rectHeight = 20;
+const rectWidth = 60;
+const ballRadius = 10;
+
 function main() {
-
-
     var canvas = document.getElementsByClassName("garden")[0];
     var ctx = canvas.getContext("2d");
+    // BALL POSITON
     var ballx = Math.floor(Math.random()*200) +50 ;
     var bally = Math.floor(Math.random()*300) +50 ;
+    // SPEED
     var dx = 1;
     var dy = -1;
-    var m = 20;
+
     var score = 3;
-    var x = 100;
     var y = 10;
 
 
@@ -25,14 +28,14 @@ function main() {
 
         function drawBall() {
             ctx.beginPath();
-            ctx.arc(ballx, bally, 10, 0, Math.PI*2);
+            ctx.arc(ballx, bally, ballRadius, 0, Math.PI*2);
             ctx.fillStyle = "#0095DD";
             ctx.closePath();
             ctx.fill();
         }
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(y+20, 20, 60, 20);
+            ctx.fillRect(y+20, 20, rectWidth, rectHeight);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
@@ -60,7 +63,7 @@ function main() {
         }
         ballx += dx;
         bally += dy;
-        if (colision_detect(ballx-10,bally-10,20,20,y+20, 20, 60, 20)) {
+        if (colision_detect(ballx-ballRadius,bally-ballRadius,ballRadius*2,ballRadius*2,y+20, 20, rectWidth, rectHeight)) {
             console.log("Bateu");
             dy = -dy;
         }
@@ -73,10 +76,6 @@ function main() {
 
     var garden = document.querySelector('.garden');
     var output = document.querySelector('.output');
-
-    var maxX = garden.clientWidth;
-    var maxY = garden.clientHeight;
-    var calibrate = document.getElementById("calibrate")
 
     var debug = document.getElementById("debug")
     window.addEventListener('deviceorientation', listerSensor);
@@ -101,7 +100,7 @@ function main() {
 
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(y+20, 20, 60, 20);
+            ctx.fillRect(y+20, 20, rectWidth, rectHeight);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
