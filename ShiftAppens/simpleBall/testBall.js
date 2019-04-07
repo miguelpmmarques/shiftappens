@@ -20,7 +20,7 @@ function main() {
 
         function drawBall() {
             ctx.beginPath();
-            ctx.arc(ballx, bally, 10, 0, Math.PI*2,true);
+            ctx.arc(ballx, bally, 10, 0, Math.PI*2);
             ctx.fillStyle = "#0095DD";
             ctx.closePath();
             ctx.fill();
