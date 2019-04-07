@@ -25,9 +25,17 @@ function main() {
             ctx.closePath();
             ctx.fill();
         }
+        function drawRect() {
+            ctx.beginPath();
+            ctx.fillRect(y, x, 20, 20);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.width);
         drawBall();
+        drawRect();
         if (ballx + dx > 300) {
             dx = -dx;
         }
@@ -51,8 +59,8 @@ function main() {
     var ball   = document.querySelector('.ball');
     var garden = document.querySelector('.garden');
     var output = document.querySelector('.output');
-    var x;
-    var y;
+    var x = 100;
+    var y = 20;
     var maxX = garden.clientWidth  - ball.clientWidth;
     var maxY = garden.clientHeight - ball.clientHeight;
     var calibrate = document.getElementById("calibrate")
