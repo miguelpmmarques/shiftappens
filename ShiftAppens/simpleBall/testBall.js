@@ -99,7 +99,7 @@ function main() {
 
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(y, 60, 20, 20);
+            ctx.fillRect(y+20, 20, 60, 20);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
