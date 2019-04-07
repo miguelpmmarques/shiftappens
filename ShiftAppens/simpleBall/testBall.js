@@ -33,7 +33,7 @@ function main() {
             ctx.closePath();
         }
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.width);
         drawBall();
         drawRect();
         if (ballx + dx > 300) {
