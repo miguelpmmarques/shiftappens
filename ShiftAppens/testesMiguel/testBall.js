@@ -6,7 +6,7 @@ var ball3   = document.querySelector('.ball3');
 var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
-const spriteFolder = "../resources/";
+const imgFolder = "../resources/";
 const sensitivity = 3;
 const xlimit = 3;
 
