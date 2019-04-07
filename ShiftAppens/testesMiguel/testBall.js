@@ -66,7 +66,7 @@ function motionHandler(event){
 }
 function main(){
   var sprite = document.getElementById('sprite');
-  sprite.src = imgFolder + "13.png";
+  sprite.src = imgFolder + "6.png";
   var maxX = garden.clientWidth  - ball.clientWidth;
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
@@ -112,7 +112,7 @@ function main(){
     if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
 
       ball2.style.background = "red";
-      sprite.src = imgFolder + "13.png";
+      sprite.src = imgFolder + "20.png";
     }
     else{
       ball2.style.background = "blue";
