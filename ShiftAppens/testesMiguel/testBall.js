@@ -111,16 +111,15 @@ function main(){
 
 
     ball.style.top =   (50 + gamma) + "px";
+    
     if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
-      sprite.src = imgFolder + "13.png";
       ball2.style.background = "green";
+      sprite.src = imgFolder + "13.png";
       
     }
-    else{
-      ball2.style.background = "blue";
-      sprite.src = imgFolder + "6.png";
-    }
-    if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
+   
+
+    else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
       ball3.style.background ="red";
       sprite.src = imgFolder + "20.png";
     }else{
