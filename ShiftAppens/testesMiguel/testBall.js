@@ -6,6 +6,7 @@ var ball3   = document.querySelector('.ball3');
 var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
+const spriteFolder = "../resources/";
 const sensitivity = 3;
 const xlimit = 3;
 
@@ -21,22 +22,12 @@ function orientationHandler(event) {
     
   var x = event.beta;  // In degree in the range [-180,180]
   var y = event.gamma; // In degree in the range [-90,90]
-  var z = event.alpha;
+
   if (y < -90) { y = -90};
   y += 90;
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML  +="gamma: " + y + "\n";
-  output.innerHTML +="alpha: " + z ;
-
-  // Because we don't want to have the device upside down
-  // We constrain the x value to the range [-90,90]
-
-
   
-
-  // 10 is half the size of the ball
-  // It center the positioning point to the center of the ball
-  //return[x,y];
   return[x,y] ;
 }
 function motionHandler(event){
@@ -74,6 +65,8 @@ function motionHandler(event){
 
 }
 function main(){
+  var sprite = document.getElementById('sprite');
+  sprite.source = imgFolder + "6.png";
   var maxX = garden.clientWidth  - ball.clientWidth;
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
@@ -91,6 +84,7 @@ function main(){
 
     if(xcount >= xlimit && prev_x == 1){
       ball4.style.background = "red";
+
     }
     else if(xcount >= xlimit && prev_x == 0){
       ball4.style.background = "green";
@@ -104,17 +98,32 @@ function main(){
     var rtrn = orientationHandler(event);
     var beta = rtrn[0];
     var gamma = rtrn[1];
+    
+    const gamma_min1 = 15;
+    const gamma_max1 = 130;
+    const beta_min1 = 160;
+    const beta_max1 = 180;
+    const gamma_min2 = 20;
+    const gamma_max2 = 120;
+    const beta_min2 = 0
+    const beta_max2 = 12;
+
     ball.style.top =   (50 + gamma) + "px";
-    if(gamma <130 && gamma > 15 && beta < 180 && beta > 160){
+    if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
+
       ball2.style.background = "red";
+      sprite.source = imgFolder + "13.png";
     }
     else{
       ball2.style.background = "blue";
+      sprite.source = imgFolder + "6.png"
     }
-    if(gamma  > 30 && gamma <120 && beta < 12 && beta > 0){
+    if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
       ball3.style.background ="red";
+      sprite.source = imgFolder + "20.png";
     }else{
       ball3.style.background = "blue";
+      sprite.source = imgFolder + "6.png"
     }
 
   
