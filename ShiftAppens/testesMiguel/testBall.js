@@ -101,8 +101,8 @@ function main(){
     
     const gamma_min1 = 15;
     const gamma_max1 = 130;
-    const beta_min1 = 160;
-    const beta_max1 = 180;
+    const beta_min1 = -180;
+    const beta_max1 = -160;
     const gamma_min2 = 20;
     const gamma_max2 = 120;
     const beta_min2 = 0
@@ -123,7 +123,7 @@ function main(){
       sprite.src = imgFolder + "20.png";
     }else{
       ball3.style.background = "blue";
-      sprite.src = imgFolder + "6.png"
+      sprite.src = imgFolder + "6.png";
     }
 
   
