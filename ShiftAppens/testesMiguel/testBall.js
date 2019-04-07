@@ -10,7 +10,7 @@ var occupied = false;
 const imgFolder = "../resources/";
 const sensitivity = 1;
 const xlimit = 3;
-
+const waitTime = 500;//milliseconds
 
 
 
@@ -26,8 +26,8 @@ function orientationHandler(event) {
 
   if (y < -90) { y = -90};
   y += 90;
-  //output.innerHTML  = "beta : " + x + "\n";
-  //output.innerHTML  +="gamma: " + y + "\n";
+  output.innerHTML  = "beta : " + x + "\n";
+  output.innerHTML  +="gamma: " + y + "\n";
   
   return[x,y] ;
 }
@@ -76,7 +76,7 @@ function main(){
         occupied = true;
         ball4.style.background = "red";
         sprite.src = imgFolder + "12.png";
-        setTimeout(stopWait, 2000);
+        setTimeout(stopWait, waitTime);
         
        
       }
@@ -88,7 +88,7 @@ function main(){
         occupied = true;
         ball1.style.background = "red";
         sprite.src = imgFolder + "0.png";
-        setTimeout(stopWait,2000);
+        setTimeout(stopWait,waitTime);
         
       }
      
@@ -114,38 +114,38 @@ function main(){
     var beta = rtrn[0];
     var gamma = rtrn[1];
     
-
+    output.innerHTML += "occupied: " + occupied;
 
     ball.style.top =   (50 + gamma) + "px";
-    
-    if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
-      var h = (gamma_max1 - gamma_min1)/4;
-      var aux = Math.round(gamma - gamma_min1);
-      var n =Math.floor( aux / h); 
-      n = 16-n;
-      output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
+    if(!occupied){
+      if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
+        var h = (gamma_max1 - gamma_min1)/4;
+        var aux = Math.round(gamma - gamma_min1);
+        var n =Math.floor( aux / h); 
+        n = 16-n;
+        output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
 
 
-      ball2.style.background = "green";
-      sprite.src = imgFolder + n.toString(10) + ".png";
-      
-    }
-    else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
-      var h = (gamma_max2 - gamma_min2)/4;
-      var aux = Math.round(gamma - gamma_min2);
-      var n =Math.floor( aux / h); 
-      n = 20-n;
-      ball3.style.background ="red";
-      sprite.src = imgFolder + n.toString(10)+".png";
-    }else{
-      ball2.style.background = "blue";
-      ball3.style.background = "blue";
-      if(!occupied){
-        sprite.src = imgFolder + "6.png";
+        ball2.style.background = "green";
+        sprite.src = imgFolder + n.toString(10) + ".png";
+
       }
+      else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
+        var h = (gamma_max2 - gamma_min2)/4;
+        var aux = Math.round(gamma - gamma_min2);
+        var n =Math.floor( aux / h); 
+        n = 20-n;
+        ball3.style.background ="red";
+        sprite.src = imgFolder + n.toString(10)+".png";
+      }else{
+        ball2.style.background = "blue";
+        ball3.style.background = "blue";
       
-    }
+        sprite.src = imgFolder + "6.png";
 
+
+      }
+    }
   
     //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px";
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
