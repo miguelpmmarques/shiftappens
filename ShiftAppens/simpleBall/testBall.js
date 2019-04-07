@@ -54,6 +54,10 @@ function main() {
         }
         ballx += dx;
         bally += dy;
+        if (colision_detect(ballx,bally,10,10,y+20, 20, 60, 20)) {
+            window.alert("Cona");
+
+        }
 
     }
     setInterval(draw, speedBall);
@@ -114,4 +118,13 @@ function main() {
     }
 
 
+}
+function colision_detect(x1,y1,h1,w1,x2,y2,h2,w2)
+{
+	if(((x2 > x1 && x2 < x1 + w1) || ( x2+w2 > x1  && x2+w2 < x1 + w1)) && ((y2 > y1 && y2 < y1 + h1) || ( y2+h2 > y1  && y2+h2 < y1 + h1)))
+	{
+		return true
+	}
+	else
+		return false
 }
