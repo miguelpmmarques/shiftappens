@@ -4,50 +4,104 @@
 {
 	window.addEventListener("load", main);
 }());
-
+const speedBall = 10;
 function main() {
+
+
+    var canvas = document.getElementsByClassName("garden")[0];
+    var ctx = canvas.getContext("2d");
+    var ballx = canvas.width/2;
+    var bally = canvas.height-30;
+    var dx = 1;
+    var dy = -1;
+
+
+    function draw() {
+
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ballx, bally, 10, 0, Math.PI,true);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+        if (ballx + dx > 300) {
+            dx = -dx;
+        }
+        if (ballx + dx < 0) {
+            dx = -dx;
+        }
+        if (bally + dy > 200) {
+            dy = -dy;
+        }
+        if (bally + dy < 0) {
+            dy = -dy;
+        }
+        ballx += dx;
+        bally += dy;
+    }
+
+    setInterval(draw, speedBall);
+
+
+
     var ball   = document.querySelector('.ball');
     var garden = document.querySelector('.garden');
     var output = document.querySelector('.output');
     var x;
     var y;
-
     var maxX = garden.clientWidth  - ball.clientWidth;
     var maxY = garden.clientHeight - ball.clientHeight;
     var calibrate = document.getElementById("calibrate")
 
     var debug = document.getElementById("debug")
-
-
-
     window.addEventListener('deviceorientation', listerSensor);
+
     function listerSensor(ev) {
-        handleOrientation(event,x,y,output,ball,garden,maxX,maxY)
+        handleOrientation()
     }
-}
-function handleOrientation(event,x,y,output,ball,garden,maxX,maxY) {
-    window.x = event.beta;  // In degree in the range [-180,180]
-    window.y = event.beta; // In degree in the range [-90,90]
-    calibrate.addEventListener("click",function(ev){
-        location.reload();
-    })
 
-    x =  window.x;
-    y =  window.y;
-    if (x >  70) { x =  70};
-    if (x < -90) { x = -90};
+    function handleOrientation() {
 
-    if (y >  90) { y =  90};
-    if (y < -90) { y = -90};
+        window.x = event.beta;  // In degree in the range [-180,180]
+        window.y = event.beta; // In degree in the range [-90,90]
+        calibrate.addEventListener("click",function(ev){
+            location.reload();
+        })
 
-    x += 90;
-    y += 90;
-    var m = (maxX*y/100)-40;
-    if (m >  280) { m =  280};
-    if (m < 60) { m = 60};
+        x =  window.x;
+        y =  window.y;
+        if (x >  70) { x =  70};
+        if (x < -90) { x = -90};
 
-    output.innerHTML  = "m : " + m-50 + "\n";
-    output.innerHTML += "gamma: " + y + "\n";
-    ball.style.top  = 20 + "px";
-    ball.style.left = m-50 + "px";
+        if (y >  90) { y =  90};
+        if (y < -90) { y = -90};
+
+        x += 90;
+        y += 90;
+        var m = (maxX*y/100)-40;
+        if (m >  280) { m =  280};
+        if (m < 60) { m = 60};
+
+        function drawRect() {
+            ctx.beginPath();
+            ctx.fillRect(x, y, 20, m-50);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawRect();
+
+        output.innerHTML  = "m : " + m-50 + "\n";
+        output.innerHTML += "gamma: " + y + "\n";
+        ball.style.top  = 20 + "px";
+        ball.style.left = m-50 + "px";
+    }
+
+
 }
