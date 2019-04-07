@@ -42,27 +42,9 @@ function motionHandler(event){
 
     return 0;
   }
- 
   if(x>sensitivity ){
-    ball1.style.background = "red";
-  }else{
-    ball1.style.background = "blue";
+    return 1;
   }
-  
-  //if(y> sensitivity ){
-  //  ball2.style.background = "red";
-  //  return 1;
-  //}else{
-  //  ball2.style.background = "blue";
-  //}
-  //if(z > sensitivity ){
-  //  ball3.style.background = "red";
-  //}else{
-  //  ball3.style.background = "blue";
-  //} 
-    
-  
-
 }
 function main(){
   var sprite = document.getElementById('sprite');
