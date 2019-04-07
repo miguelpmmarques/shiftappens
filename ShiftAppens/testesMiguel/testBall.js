@@ -67,16 +67,18 @@ function main(){
     if(xcount >= xlimit && prev_x == 1){
       if(ball1.style.background != "green"){
         ball4.style.background = "red";
-        sprite.src = imgFolder + "12.png";
+       
       }
+      sprite.src = imgFolder + "12.png";
       
   
     }
     else if(xcount >= xlimit && prev_x == 0){
       if(ball4.style.background != "red"){
         ball1.style.background = "green";
-        sprite.src = imgFolder + "0.png";
+        
       }
+      sprite.src = imgFolder + "0.png";
       
     }
     else{
