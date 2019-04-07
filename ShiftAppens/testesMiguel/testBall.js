@@ -104,7 +104,7 @@ function main(){
     const gamma_min1 = 15;
     const gamma_max1 = 130;
     const beta_min1 = -180;
-    const beta_max1 = -80;
+    const beta_max1 = -130;
     const gamma_min2 = 20;
     const gamma_max2 = 160;
     const beta_min2 = -50
@@ -118,7 +118,7 @@ function main(){
 
     ball.style.top =   (50 + gamma) + "px";
     if(!occupied){
-      if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
+      if(gamma <gamma_max1 && gamma > gamma_min1 && ((beta < beta_max1 && beta > beta_min1) || (beta < -1*beta_max1 && beta > -1*beta_min1) ){
         var h = (gamma_max1 - gamma_min1)/4;
         var aux = Math.round(gamma - gamma_min1);
         var n =Math.floor( aux / h); 
