@@ -8,8 +8,8 @@ var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 var occupied = false;
 const imgFolder = "../resources/";
-const sensitivity = 3;
-const xlimit = 5;
+const sensitivity = 1;
+const xlimit = 3;
 
 
 
@@ -86,7 +86,7 @@ function main(){
     else if(xcount >= xlimit && prev_x == 0){
       if(!occupied){
         occupied = true;
-        ball3.style.background = "red";
+        ball1.style.background = "red";
         sprite.src = imgFolder + "0.png";
         setTimeout(stopWait,2000);
         
@@ -140,7 +140,10 @@ function main(){
     }else{
       ball2.style.background = "blue";
       ball3.style.background = "blue";
-      sprite.src = imgFolder + "6.png";
+      if(!occupied){
+        sprite.src = imgFolder + "6.png";
+      }
+      
     }
 
   
