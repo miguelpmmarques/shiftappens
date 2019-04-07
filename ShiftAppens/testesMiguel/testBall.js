@@ -61,7 +61,7 @@ function main(){
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
   var prev_x = 0;
-  var tempo = 500;
+  var tempo = 1000;
 
   
   setInterval(generate_actions,tempo );
