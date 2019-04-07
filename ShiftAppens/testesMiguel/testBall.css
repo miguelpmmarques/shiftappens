@@ -52,3 +52,17 @@
     background: blue;
     border-radius: 100%;
 }  
+
+#sprite
+{
+	display: inline-block;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;	
+	height: 600px;
+	top: 0px;
+
+	width: 600px;
+	left: 0px;
+	
+}
