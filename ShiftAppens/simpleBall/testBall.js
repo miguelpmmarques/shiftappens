@@ -109,8 +109,6 @@ function main() {
 
         output.innerHTML = "gamma: " + y+20 + "\n";
     }
-
-
 }
 function colision_detect(x1,y1,h1,w1,x2,y2,h2,w2)
 {
