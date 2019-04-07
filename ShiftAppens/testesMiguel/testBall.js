@@ -8,7 +8,7 @@ var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 var occupied = false;
 const imgFolder = "../resources/";
-const sensitivity = 3;
+const sensitivity = 1;
 const xlimit = 5;
 
 
