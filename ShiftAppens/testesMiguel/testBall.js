@@ -62,7 +62,7 @@ function main(){
   var xcount = 0;
   var prev_x = 0;
   var tempo = 1000;
-  var objective = Nan;
+  var objective = NaN;
   var objectiveMet = false;
 
   
