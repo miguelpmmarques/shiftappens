@@ -16,6 +16,9 @@ function main() {
     var dy = -1;
     var m = 20;
 
+    var x = 100;
+    var y = 10;
+
 
     function draw() {
 
@@ -28,7 +31,7 @@ function main() {
         }
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(20, m, 60, 20);
+            ctx.fillRect(y+20, 20, 60, 20);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
@@ -60,8 +63,7 @@ function main() {
     var ball   = document.querySelector('.ball');
     var garden = document.querySelector('.garden');
     var output = document.querySelector('.output');
-    var x = 100;
-    var y = 10;
+
     var maxX = garden.clientWidth;
     var maxY = garden.clientHeight;
     var calibrate = document.getElementById("calibrate")
@@ -97,7 +99,7 @@ function main() {
 
         function drawRect() {
             ctx.beginPath();
-            ctx.fillRect(y, 20, 20, 20);
+            ctx.fillRect(y, 60, 20, 20);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
