@@ -121,7 +121,7 @@ function main(){
       var h = (gamma_max2 - gamma_min2)/4;
       var aux = Math.round(gamma - gamma_min2);
       var n =Math.floor( aux / h); 
-      n += 16;
+      n = 20-n;
       ball3.style.background ="red";
       sprite.src = imgFolder + n.toString(10)+".png";
     }else{
