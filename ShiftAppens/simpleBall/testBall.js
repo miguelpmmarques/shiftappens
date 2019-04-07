@@ -4,10 +4,14 @@
 {
 	window.addEventListener("load", main);
 }());
+
 const speedBall = 5;
 const rectHeight = 20;
 const rectWidth = 60;
 const ballRadius = 10;
+const shiftleft = 20;
+const userOnePos = 10;
+const userTwoPos = 470;
 
 function main() {
     var canvas = document.getElementsByClassName("garden")[0];
@@ -18,34 +22,38 @@ function main() {
     // SPEED
     var dx = 1;
     var dy = -1;
+    var scoreOne = 0;
+    var scoreTwo = 0;
+    var userOne = 10;
+    var usertwo = 10;
 
-    var score = 3;
-    var y = 10;
+    var output = document.querySelector('.output');
 
+    setInterval(draw, speedBall);
+
+
+    window.addEventListener('deviceorientation', function(){
+        userOne = event.beta;
+        if (userOne >  90) { userOne =  90};
+        if (userOne < -90) { userOne = -90};
+        userOne += 90;
+        output.innerHTML = "gamma: " + userOne+shiftleft + "\n";
+
+        usertwo = event.beta;
+        if (usertwo >  90) { usertwo =  90};
+        if (usertwo < -90) { usertwo = -90};
+        usertwo += 90;
+        output.innerHTML = "gamma: " + usertwo+shiftleft + "\n";
+    });
 
 
     function draw() {
-
-        function drawBall() {
-            ctx.beginPath();
-            ctx.arc(ballx, bally, ballRadius, 0, Math.PI*2);
-            ctx.fillStyle = "#0095DD";
-            ctx.closePath();
-            ctx.fill();
-        }
-        function drawRect() {
-            ctx.beginPath();
-            ctx.fillRect(y+20, 20, rectWidth, rectHeight);
-            ctx.fillStyle = "#0095DD";
-            ctx.fill();
-            ctx.closePath();
-        }
-
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font = "60px raleway";
-        ctx.strokeText("Lives - "+score, 40, 270);
-        drawBall();
-        drawRect();
+        ctx.font = "100px raleway";
+        ctx.strokeText(scoreOne+" - "+scoreTwo, 55, 270);
+        drawBall(ctx,ballx, bally, ballRadius);
+        drawUser(ctx,userOne,shiftleft, userOnePos, rectWidth, rectHeight);
+        drawUser(ctx,usertwo,shiftleft, userTwoPos, rectWidth, rectHeight);
         if (ballx + dx > canvas.width) {
             dx = -dx;
         }
@@ -53,61 +61,46 @@ function main() {
             dx = -dx;
         }
         if (bally + dy > canvas.height) {
+            ballx = Math.floor(Math.random()*200) +50 ;
+            bally = Math.floor(Math.random()*300) +50 ;
+            scoreOne+=1;
             dy = -dy;
         }
         if (bally + dy < 0) {
             ballx = Math.floor(Math.random()*200) +50 ;
             bally = Math.floor(Math.random()*300) +50 ;
-            score-=1;
+            scoreTwo+=1;
+            dy = -dy;
+        }
+        if (scoreOne == 10 || scoreTwo == 10) {
+            scoreOne = 0;
+            scoreTwo = 0;
+        }
+        if (colision_detect(ballx-ballRadius,bally-ballRadius,ballRadius*2,ballRadius*2,userOne+shiftleft, userOnePos, rectWidth, rectHeight)) {
+            console.log("Bateu");
+            dy = -dy;
+        }
+        if (colision_detect(ballx-ballRadius,bally-ballRadius,ballRadius*2,ballRadius*2,usertwo+shiftleft, userTwoPos, rectWidth, rectHeight)) {
+            console.log("Bateu");
             dy = -dy;
         }
         ballx += dx;
         bally += dy;
-        if (colision_detect(ballx-ballRadius,bally-ballRadius,ballRadius*2,ballRadius*2,y+20, 20, rectWidth, rectHeight)) {
-            console.log("Bateu");
-            dy = -dy;
-        }
-
     }
-    setInterval(draw, speedBall);
-
-
-
-
-    var garden = document.querySelector('.garden');
-    var output = document.querySelector('.output');
-
-    var debug = document.getElementById("debug")
-    window.addEventListener('deviceorientation', listerSensor);
-
-    function listerSensor(ev) {
-        handleOrientation()
-    }
-
-    function handleOrientation(ev) {
-
-
-        y = event.beta;
-
-        /*calibrate.addEventListener("click",function(ev){
-            location.reload();
-        })*/
-
-        if (y >  90) { y =  90};
-        if (y < -90) { y = -90};
-
-        y += 90;
-
-        function drawRect() {
-            ctx.beginPath();
-            ctx.fillRect(y+20, 20, rectWidth, rectHeight);
-            ctx.fillStyle = "#0095DD";
-            ctx.fill();
-            ctx.closePath();
-        }
-
-        output.innerHTML = "gamma: " + y+20 + "\n";
-    }
+}
+function drawBall(ctx,ballx, bally, ballRadius) {
+    ctx.beginPath();
+    ctx.arc(ballx, bally, ballRadius, 0, Math.PI*2);
+    ctx.fillStyle = "#0095DD";
+    ctx.closePath();
+    ctx.fill();
+}
+function drawUser(ctx,user,shiftleft, userPos, rectWidth, rectHeight) {
+    ctx.beginPath();
+    ctx.fillRect(user+shiftleft, userPos, rectWidth, rectHeight);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
 }
 function colision_detect(x1,y1,h1,w1,x2,y2,h2,w2)
 {
