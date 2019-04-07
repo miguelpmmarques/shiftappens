@@ -59,7 +59,7 @@ function motionHandler(event){
   //  ball3.style.background = "red";
   //}else{
   //  ball3.style.background = "blue";
-  //}
+  //} 
     
   
 
