@@ -95,10 +95,6 @@ function main(){
   }
 
   function handleOrientation(event){
-    var rtrn = orientationHandler(event);
-    var beta = rtrn[0];
-    var gamma = rtrn[1];
-    
     const gamma_min1 = 15;
     const gamma_max1 = 130;
     const beta_min1 = -180;
@@ -108,11 +104,17 @@ function main(){
     const beta_min2 = 0
     const beta_max2 = 12;
 
+    var rtrn = orientationHandler(event);
+    var beta = rtrn[0];
+    var gamma = rtrn[1];
+    
+
+
     ball.style.top =   (50 + gamma) + "px";
     if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
 
-      ball2.style.background = "red";
-      sprite.src = imgFolder + "20.png";
+      ball2.style.background = "green";
+      sprite.src = imgFolder + "13.png";
     }
     else{
       ball2.style.background = "blue";
@@ -120,14 +122,14 @@ function main(){
     }
     if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
       ball3.style.background ="red";
-      sprite.src = imgFolder + "13.png";
+      sprite.src = imgFolder + "20.png";
     }else{
       ball3.style.background = "blue";
       sprite.src = imgFolder + "6.png";
     }
 
   
-    //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px" ;
+    //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px";
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
   window.addEventListener('deviceorientation', handleOrientation);
