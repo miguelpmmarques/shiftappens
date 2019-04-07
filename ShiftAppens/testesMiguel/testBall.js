@@ -26,8 +26,8 @@ function orientationHandler(event) {
 
   if (y < -90) { y = -90};
   y += 90;
-  output.innerHTML  = "beta : " + x + "\n";
-  output.innerHTML  +="gamma: " + y + "\n";
+  //output.innerHTML  = "beta : " + x + "\n";
+  //output.innerHTML  +="gamma: " + y + "\n";
   
   return[x,y] ;
 }
@@ -35,9 +35,9 @@ function motionHandler(event){
   var x = event.acceleration.x;
   var y = event.acceleration.y;
   var z = event.acceleration.z;
-  output.innerHTML = "x: " + x + "\n";
-  output.innerHTML += "y: " + y + "\n";
-  output.innerHTML += "z: " + z + "\n";
+  //output.innerHTML += "y: " + y + "\n";
+  //output.innerHTML += "z: " + z + "\n";
+  //output.innerHTML = "x: " + x + "\n";
   if(x<-1*sensitivity)
   {
 
@@ -48,6 +48,10 @@ function motionHandler(event){
   }
 }
 
+function RandInt(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
 
 function main(){
   var sprite = document.getElementById('sprite');
@@ -56,7 +60,34 @@ function main(){
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
   var prev_x = 0;
+  var tempo = 2000;
   
+  setInterval(generate_actions,tempo );
+
+  function generate_actions(){
+    output.innerHTML = "";
+    if(RandInt(0,100) < 40){
+      
+      switch(RandInt(0,3)) {
+        case 0:
+          output.innerHTML += "Salta";
+
+          break;
+        case 1:
+          output.innerHTMLA += "Agacha";
+          break;
+        case 2:
+          output.innerHTML += "Limbo";
+          break;
+        case 3:
+          output.innerHTML += "Curva";
+          break;
+      }
+      tempo -= 4;
+
+    }
+  }
+
   function stopWait(){
       occupied = false;
   }
