@@ -54,6 +54,7 @@ function RandInt(min, max) {
 
 
 function main(){
+  var plate = new Audio(imgFolder + "plate.wav");
   var sprite = document.getElementById('sprite');
   sprite.src = imgFolder + "6.png";
   var maxX = garden.clientWidth  - ball.clientWidth;
@@ -61,11 +62,13 @@ function main(){
   var xcount = 0;
   var prev_x = 0;
   var tempo = 2000;
+
   
   setInterval(generate_actions,tempo );
 
   function generate_actions(){
     output.innerHTML = "";
+    plate.play();
     if(RandInt(0,100) < 40){
       
       switch(RandInt(0,3)) {
@@ -145,7 +148,7 @@ function main(){
     var beta = rtrn[0];
     var gamma = rtrn[1];
     
-    output.innerHTML += "occupied: " + occupied;
+    //output.innerHTML += "occupied: " + occupied;
 
     ball.style.top =   (50 + gamma) + "px";
     if(!occupied){
