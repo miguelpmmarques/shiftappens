@@ -108,7 +108,7 @@ function main(){
     if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
       var h = (gamma_max1 - gamma_min1)/4;
       var aux = gamma - gamma_min1;
-      var n = Math.floor( h%aux);
+      var n = Math.floor( aux%h);
       output.innerHTML = "n: " + n + "\n";
 
 
