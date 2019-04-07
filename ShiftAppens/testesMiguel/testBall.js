@@ -103,12 +103,12 @@ function main(){
   function handleOrientation(event){
     const gamma_min1 = 15;
     const gamma_max1 = 130;
-    const beta_min1 = -180;
-    const beta_max1 = -160;
+    const beta_min1 = -190;
+    const beta_max1 = -150;
     const gamma_min2 = 20;
     const gamma_max2 = 160;
-    const beta_min2 = 0
-    const beta_max2 = 12;
+    const beta_min2 = -30
+    const beta_max2 = 30;
 
     var rtrn = orientationHandler(event);
     var beta = rtrn[0];
