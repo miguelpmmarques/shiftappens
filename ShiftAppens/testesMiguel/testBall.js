@@ -112,9 +112,9 @@ function main(){
 
     ball.style.top =   (50 + gamma) + "px";
     if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
-
-      ball2.style.background = "green";
       sprite.src = imgFolder + "13.png";
+      ball2.style.background = "green";
+      
     }
     else{
       ball2.style.background = "blue";
