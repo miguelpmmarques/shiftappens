@@ -76,6 +76,7 @@ function main(){
         tempo -= 200;
         intervalId = setInterval(generate_actions,tempo );
         output.innerHTML = "congrats!";
+        garden.style.background = "red";
       }
     }
 
