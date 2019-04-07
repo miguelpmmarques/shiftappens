@@ -6,10 +6,11 @@ var ball3   = document.querySelector('.ball3');
 var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
+var occupied = false;
 const imgFolder = "../resources/";
-const sensitivity = 3;
+const sensitivity = 1;
 const xlimit = 3;
-
+const waitTime = 500;//milliseconds
 
 
 
@@ -34,10 +35,10 @@ function motionHandler(event){
   var x = event.acceleration.x;
   var y = event.acceleration.y;
   var z = event.acceleration.z;
-  //output.innerHTML = "x: " + x + "\n";
-  //output.innerHTML += "y: " + y + "\n";
-  //output.innerHTML += "z: " + z + "\n";
-  if(x<-1*sensitivity )
+  output.innerHTML = "x: " + x + "\n";
+  output.innerHTML += "y: " + y + "\n";
+  output.innerHTML += "z: " + z + "\n";
+  if(x<-1*sensitivity)
   {
 
     return 0;
@@ -46,6 +47,8 @@ function motionHandler(event){
     return 1;
   }
 }
+
+
 function main(){
   var sprite = document.getElementById('sprite');
   sprite.src = imgFolder + "6.png";
@@ -54,6 +57,10 @@ function main(){
   var xcount = 0;
   var prev_x = 0;
   
+  function stopWait(){
+      occupied = false;
+  }
+
   function handleMotion(event){
     var rtrn = motionHandler(event);
     if (rtrn == prev_x){
@@ -65,20 +72,26 @@ function main(){
     }
 
     if(xcount >= xlimit && prev_x == 1){
-      if(ball1.style.background != "green"){
+      if(!occupied){
+        occupied = true;
         ball4.style.background = "red";
+        sprite.src = imgFolder + "12.png";
+        setTimeout(stopWait, waitTime);
+        
        
       }
-      sprite.src = imgFolder + "12.png";
       
   
     }
     else if(xcount >= xlimit && prev_x == 0){
-      if(ball4.style.background != "red"){
-        ball1.style.background = "green";
+      if(!occupied){
+        occupied = true;
+        ball1.style.background = "red";
+        sprite.src = imgFolder + "0.png";
+        setTimeout(stopWait,waitTime);
         
       }
-      sprite.src = imgFolder + "0.png";
+     
       
     }
     else{
@@ -101,30 +114,38 @@ function main(){
     var beta = rtrn[0];
     var gamma = rtrn[1];
     
-
+    output.innerHTML += "occupied: " + occupied;
 
     ball.style.top =   (50 + gamma) + "px";
-    
-    if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
-      var h = (gamma_max1 - gamma_min1)/4;
-      var aux = Math.round(gamma - gamma_min1);
-      var n =Math.floor( aux / h); 
-      output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
+    if(!occupied){
+      if(gamma <gamma_max1 && gamma > gamma_min1 && beta < beta_max1 && beta > beta_min1){
+        var h = (gamma_max1 - gamma_min1)/4;
+        var aux = Math.round(gamma - gamma_min1);
+        var n =Math.floor( aux / h); 
+        n = 16-n;
+        output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
 
 
-      ball2.style.background = "green";
-      sprite.src = imgFolder +( 13 + n).toString(10) + ".png";
+        ball2.style.background = "green";
+        sprite.src = imgFolder + n.toString(10) + ".png";
+
+      }
+      else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
+        var h = (gamma_max2 - gamma_min2)/4;
+        var aux = Math.round(gamma - gamma_min2);
+        var n =Math.floor( aux / h); 
+        n = 20-n;
+        ball3.style.background ="red";
+        sprite.src = imgFolder + n.toString(10)+".png";
+      }else{
+        ball2.style.background = "blue";
+        ball3.style.background = "blue";
       
-    }
-    else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
-      ball3.style.background ="red";
-      sprite.src = imgFolder + "20.png";
-    }else{
-      ball2.style.background = "blue";
-      ball3.style.background = "blue";
-      sprite.src = imgFolder + "6.png";
-    }
+        sprite.src = imgFolder + "6.png";
 
+
+      }
+    }
   
     //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px";
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
