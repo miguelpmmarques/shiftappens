@@ -86,7 +86,7 @@ function main(){
     output.innerHTML = "obj: " + objectiveMet.toString() +"\n";
     plate.play();
     objective = NaN;
-    var objectiveMet = false;
+    objectiveMet = false;
     if(RandInt(0,100) < 40){
       
       switch(RandInt(0,4)) {
