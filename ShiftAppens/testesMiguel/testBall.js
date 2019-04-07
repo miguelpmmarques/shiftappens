@@ -109,7 +109,7 @@ function main(){
       var h = (gamma_max1 - gamma_min1)/4;
       var aux = gamma - gamma_min1;
       var n = Math.floor( aux%h);
-      output.innerHTML = "n: " + n + "\n";
+      output.innerHTML = "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
 
 
       ball2.style.background = "green";
