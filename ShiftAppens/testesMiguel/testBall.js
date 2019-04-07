@@ -83,11 +83,18 @@ function main(){
     }
 
     if(xcount >= xlimit && prev_x == 1){
-      ball4.style.background = "red";
+      if(ball4.style.background != "green"){
+        ball4.style.background = "red";
+      }
+      
+      
 
     }
     else if(xcount >= xlimit && prev_x == 0){
-      ball4.style.background = "green";
+      if(ball4.styl.background != "red"){
+        ball4.style.background = "green";
+      }
+      
     }
     else{
       ball4.style.background = "blue";
