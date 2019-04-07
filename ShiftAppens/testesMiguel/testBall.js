@@ -118,8 +118,12 @@ function main(){
       
     }
     else if(gamma  > gamma_min2 && gamma <gamma_max2 && beta < beta_max2 && beta > beta_min2){
+      var h = (gamma_max2 - gamma_min2)/4;
+      var aux = Math.round(gamma - gamma_min2);
+      var n =Math.floor( aux / h); 
+      n += 16;
       ball3.style.background ="red";
-      sprite.src = imgFolder + "20.png";
+      sprite.src = imgFolder + n.toString(10)+".png";
     }else{
       ball2.style.background = "blue";
       ball3.style.background = "blue";
