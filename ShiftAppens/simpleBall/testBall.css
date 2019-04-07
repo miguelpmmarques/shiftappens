@@ -19,6 +19,7 @@ body{
     background-color: rgba(240,239,127,1);
     border-radius: 20%;
 }
+
 #calibrate{
     position: absolute;
     top   : 280px;
