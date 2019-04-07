@@ -127,7 +127,7 @@ function main(){
     }
 
   
-    //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px";
+    //ball.style.top  =   ef (rtrn[0]*maxX/180 - 10) + "px" ;
     //ball.style.left = (rtrn[1]*maxY/180 - 10) + "px";
   }
   window.addEventListener('deviceorientation', handleOrientation);
