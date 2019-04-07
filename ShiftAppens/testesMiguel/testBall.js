@@ -123,7 +123,7 @@ function main(){
         var aux = Math.round(gamma - gamma_min1);
         var n =Math.floor( aux / h); 
         n = 16-n;
-        output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
+        //output.innerHTML ="gamma :" + gamma + "\n" + "n: " + n + "\n" + "h: " + h+ "\n" + "aux: " + aux + "\n";
 
 
         ball2.style.background = "green";
