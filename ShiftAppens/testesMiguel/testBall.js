@@ -78,6 +78,9 @@ function main(){
         output.innerHTML = "congrats!";
         garden.style.background = "red";
       }
+      else{
+        garden.style.background = "blue";
+      }
     }
 
     output.innerHTML = "";
@@ -86,10 +89,10 @@ function main(){
     var objectiveMet = false;
     if(RandInt(0,100) < 40){
       
-      switch(RandInt(0,3)) {
+      switch(RandInt(0,4)) {
         case 0:
           output.innerHTML += "Salta";
-          objective = 0
+          objective = 0;
 
           break;
         case 1:
