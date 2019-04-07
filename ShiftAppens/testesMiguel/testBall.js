@@ -61,7 +61,7 @@ function main(){
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
   var prev_x = 0;
-  var tempo = 2000;
+  var tempo = 500;
 
   
   setInterval(generate_actions,tempo );
@@ -86,7 +86,7 @@ function main(){
           output.innerHTML += "Curva";
           break;
       }
-      tempo -= 4;
+      tempo -= 20;
 
     }
   }
