@@ -25,8 +25,8 @@ function orientationHandler(event) {
 
   if (y < -90) { y = -90};
   y += 90;
-  output.innerHTML  = "beta : " + x + "\n";
-  output.innerHTML  +="gamma: " + y + "\n";
+  //output.innerHTML  = "beta : " + x + "\n";
+  //output.innerHTML  +="gamma: " + y + "\n";
   
   return[x,y] ;
 }
@@ -34,9 +34,9 @@ function motionHandler(event){
   var x = event.acceleration.x;
   var y = event.acceleration.y;
   var z = event.acceleration.z;
-  //output.innerHTML = "x: " + x + "\n";
-  //output.innerHTML += "y: " + y + "\n";
-  //output.innerHTML += "z: " + z + "\n";
+  output.innerHTML = "x: " + x + "\n";
+  output.innerHTML += "y: " + y + "\n";
+  output.innerHTML += "z: " + z + "\n";
   if(x<-1*sensitivity )
   {
 
@@ -56,11 +56,7 @@ function main(){
   var xcount = 0;
   var prev_x = 0;
   
-  function down(){
-    ball4.style.background = "red";
-    sprite.src = imgFolder + "12.png";
 
-  }
 
   function handleMotion(event){
     var rtrn = motionHandler(event);
@@ -74,7 +70,7 @@ function main(){
 
     if(xcount >= xlimit && prev_x == 1){
       if(ball1.style.background != "green"){
-        setInterval(down, 2000);
+        //setInterval(down, 2000);
         ball4.style.background = "red";
        
       }
