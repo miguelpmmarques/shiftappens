@@ -7,7 +7,7 @@ var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 const imgFolder = "../resources/";
-const sensitivity = 1;
+const sensitivity = 2;
 const xlimit = 3;
 
 
@@ -58,6 +58,8 @@ function main(){
   
   function down(){
     ball4.style.background = "red";
+    sprite.src = imgFolder + "12.png";
+
   }
 
   function handleMotion(event){
@@ -76,7 +78,6 @@ function main(){
         ball4.style.background = "red";
        
       }
-      sprite.src = imgFolder + "12.png";
       
   
     }
