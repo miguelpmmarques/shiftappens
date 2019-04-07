@@ -46,6 +46,8 @@ function motionHandler(event){
     return 1;
   }
 }
+
+
 function main(){
   var sprite = document.getElementById('sprite');
   sprite.src = imgFolder + "6.png";
@@ -54,6 +56,10 @@ function main(){
   var xcount = 0;
   var prev_x = 0;
   
+  function down(){
+    ball4.style.background = "red";
+  }
+
   function handleMotion(event){
     var rtrn = motionHandler(event);
     if (rtrn == prev_x){
@@ -66,6 +72,7 @@ function main(){
 
     if(xcount >= xlimit && prev_x == 1){
       if(ball1.style.background != "green"){
+        setInterval(down, 2000);
         ball4.style.background = "red";
        
       }
