@@ -8,7 +8,7 @@ var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 var occupied = false;
 const imgFolder = "../resources/";
-const sensitivity = 1;
+const sensitivity = 1.5;
 const xlimit = 3;
 const waitTime = 500;//milliseconds
 
@@ -103,12 +103,12 @@ function main(){
   function handleOrientation(event){
     const gamma_min1 = 15;
     const gamma_max1 = 130;
-    const beta_min1 = -190;
-    const beta_max1 = -150;
+    const beta_min1 = -180;
+    const beta_max1 = -80;
     const gamma_min2 = 20;
     const gamma_max2 = 160;
-    const beta_min2 = -30
-    const beta_max2 = 30;
+    const beta_min2 = -50
+    const beta_max2 = 50;
 
     var rtrn = orientationHandler(event);
     var beta = rtrn[0];
