@@ -7,7 +7,7 @@ var ball4   = document.querySelector('.ball4');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 const imgFolder = "../resources/";
-const sensitivity = 3;
+const sensitivity = 1;
 const xlimit = 3;
 
 
