@@ -54,7 +54,8 @@ function main(){
   var plate = new Audio(imgFolder + "plate.wav");
   var sprite = document.getElementById('sprite');
   sprite.src = imgFolder + "6.png";
-  sprite.setAttribute('style','transform:rotate(90deg)');
+  sprite.setAttribute('style','transform:rotate(270deg)');
+
   var maxX = garden.clientWidth  - ball.clientWidth;
   var maxY = garden.clientHeight - ball.clientHeight;
   var xcount = 0;
