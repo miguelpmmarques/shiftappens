@@ -54,9 +54,9 @@ function main() {
         }
         ballx += dx;
         bally += dy;
-        if (colision_detect(ballx,bally,10,10,y+20, 20, 60, 20)) {
+        if (colision_detect(ballx,bally,5,5,y+20, 20, 20, 60)) {
             window.alert("Cona");
-
+            dy = -dy;
         }
 
     }
